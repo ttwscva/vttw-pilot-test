@@ -206,3 +206,203 @@ const questionBank = [
 
 // 請確保您的 QUESTIONS_COUNT 等於或小於 55
 const QUESTIONS_COUNT = 30; // 系統將從這 200 題中隨機抽出 30 題給考生作答
+const EXAM_TIME_SECONDS = 1800; // 30分鐘
+
+let timerInterval;
+let timeRemaining = EXAM_TIME_SECONDS;
+let currentQuestions = [];
+let candidateData = { name: "", email: "", date: "" };
+
+const candidateScreen = document.getElementById('candidate-screen');
+const startScreen = document.getElementById('start-screen');
+const quizScreen = document.getElementById('quiz-screen');
+const resultScreen = document.getElementById('result-screen');
+const questionsContainer = document.getElementById('questions-container');
+const timerElement = document.getElementById('timer');
+const timeDisplay = document.getElementById('time-display');
+const scoreDisplay = document.getElementById('score-display');
+const resultCandidateInfo = document.getElementById('result-candidate-info');
+
+// 網頁載入時自動帶入日期
+document.addEventListener("DOMContentLoaded", () => {
+    const dateInput = document.getElementById('candidate-date');
+    if (dateInput) {
+        const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Taipei' });
+        dateInput.value = today;
+    }
+});
+
+document.getElementById('confirm-info-btn').addEventListener('click', confirmCandidateInfo);
+document.getElementById('start-btn').addEventListener('click', startExam);
+document.getElementById('submit-btn').addEventListener('click', submitExam);
+document.getElementById('retry-btn').addEventListener('click', resetExam);
+
+function confirmCandidateInfo() {
+    const nameInput = document.getElementById('candidate-name').value.trim();
+    const emailInput = document.getElementById('candidate-email').value.trim();
+    const dateInput = document.getElementById('candidate-date').value;
+    
+    if (nameInput === "" || emailInput === "" || dateInput === "") {
+        alert("請完整輸入姓名、電子郵件與考試日期！");
+        return;
+    }
+    
+    candidateData.name = nameInput;
+    candidateData.email = emailInput;
+    candidateData.date = dateInput;
+    
+    candidateScreen.classList.add('hidden');
+    startScreen.classList.remove('hidden');
+}
+
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+
+function startExam() {
+    startScreen.classList.add('hidden');
+    resultScreen.classList.add('hidden'); 
+    quizScreen.classList.remove('hidden');
+    timerElement.classList.remove('hidden');
+    
+    const shuffledBank = shuffle([...questionBank]);
+    currentQuestions = shuffledBank.slice(0, QUESTIONS_COUNT);
+    
+    renderQuestions();
+    startTimer();
+}
+
+function renderQuestions() {
+    questionsContainer.innerHTML = '';
+    currentQuestions.forEach((q, index) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `question-${index}`;
+        
+        const title = document.createElement('div');
+        title.className = 'question-title';
+        title.textContent = `${index + 1}. ${q.question}`;
+        card.appendChild(title);
+        
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'options';
+        q.options.forEach((opt, optIndex) => {
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = `q-${index}`; 
+            radio.value = optIndex;
+            
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(opt));
+            optionsDiv.appendChild(label);
+        });
+        card.appendChild(optionsDiv);
+        
+        const explanationDiv = document.createElement('div');
+        explanationDiv.className = 'explanation hidden';
+        explanationDiv.id = `exp-${index}`;
+        explanationDiv.innerHTML = `<strong>解析：</strong><br>${q.explanation}`;
+        card.appendChild(explanationDiv);
+        
+        questionsContainer.appendChild(card);
+    });
+}
+
+function startTimer() {
+    timeRemaining = EXAM_TIME_SECONDS;
+    updateTimeDisplay();
+    clearInterval(timerInterval);
+    
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimeDisplay();
+        
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            alert("時間到！系統將自動交卷。");
+            submitExam();
+        }
+    }, 1000);
+}
+
+function updateTimeDisplay() {
+    const minutes = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+    const seconds = (timeRemaining % 60).toString().padStart(2, '0');
+    timeDisplay.textContent = `${minutes}:${seconds}`;
+}
+
+function submitExam() {
+    clearInterval(timerInterval); 
+    let correctCount = 0;
+    
+    currentQuestions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q-${index}"]:checked`);
+        const optionsLabels = document.querySelectorAll(`#question-${index} label`);
+        const explanationDiv = document.getElementById(`exp-${index}`);
+        const userAnswer = selected ? parseInt(selected.value) : -1;
+        
+        optionsLabels[q.answer].classList.add('correct');
+        
+        if (userAnswer === q.answer) {
+            correctCount++;
+        } else if (userAnswer !== -1) {
+            optionsLabels[userAnswer].classList.add('wrong');
+        }
+        
+        explanationDiv.classList.remove('hidden');
+        const allRadios = document.querySelectorAll(`input[name="q-${index}"]`);
+        allRadios.forEach(radio => radio.disabled = true);
+    });
+    
+    const score = Math.round((correctCount / QUESTIONS_COUNT) * 100);
+    const passStatus = score >= 85 ? '<span style="color: #28a745;">PASS / 及格</span>' : '<span style="color: #dc3545;">FAIL / 不及格</span>';
+    
+    resultCandidateInfo.innerHTML = `考生：${candidateData.name} <br><span style="font-size: 0.95rem; color: #888;">Email：${candidateData.email} | 日期：${candidateData.date}</span>`;
+    scoreDisplay.innerHTML = `${score} 分<br>${passStatus}`;
+    
+    document.getElementById('submit-btn').classList.add('hidden');
+    resultScreen.classList.remove('hidden');
+    
+    resultScreen.scrollIntoView({ behavior: 'smooth' });
+
+    // ==========================================
+    // 將成績傳送至 Google Sheets
+    // ==========================================
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbzxANs5UGKfIle14PWndxsSnBU1h-Lghuj66cgOjRCjCsJk2AzSmB7l4XDjUsyZRv6V/exec"; 
+    
+    const payload = {
+        name: candidateData.name,
+        id: candidateData.email,
+        score: score,
+        status: score >= 85 ? "PASS / 及格" : "FAIL / 不及格"
+    };
+    
+    fetch(scriptUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => console.log("成績已成功上傳至 Google Sheets", data))
+    .catch(error => console.error("成績上傳失敗:", error));
+}
+
+function resetExam() {
+    resultScreen.classList.add('hidden');
+    quizScreen.classList.add('hidden');
+    timerElement.classList.add('hidden');
+    candidateScreen.classList.remove('hidden'); 
+    
+    document.getElementById('candidate-name').value = '';
+    document.getElementById('candidate-email').value = '';
+    
+    document.getElementById('submit-btn').classList.remove('hidden');
+    window.scrollTo(0, 0);
+}
