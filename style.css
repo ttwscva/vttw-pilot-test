@@ -1,5 +1,5 @@
 /* ==========================================
-   vTTW 飛行員筆試系統 - 樣式表 (手機自適應完美版)
+   vTTW 飛行員筆試系統 - 樣式表 (手機直式完美優化版)
    ========================================== */
 
 * {
@@ -50,25 +50,38 @@ header {
     text-align: center;
     margin-bottom: 15px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-/* 標題自適應大小，強制不亂斷行 */
+/* 標頭排版：左側放大 Logo，右側兩行文字完美置中對齊 */
 header h1 {
-    font-size: clamp(1.1rem, 4.5vw, 1.6rem); /* 隨著螢幕大小自動縮放 */
+    font-size: clamp(1rem, 3.8vw, 1.6rem);
     color: #d97706;
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    white-space: nowrap; /* 確保標題文字絕不被強制斷行 */
-    width: 100%;
+    gap: 12px;
+    text-align: left;
 }
 
-header h1 img {
-    width: 40px;
-    height: 40px;
+.header-logo {
+    width: 48px;
+    height: 48px;
     object-fit: contain;
+    flex-shrink: 0;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.35;
+}
+
+.header-text span {
+    white-space: nowrap;
 }
 
 #timer {
@@ -86,7 +99,6 @@ header h1 img {
     justify-content: center;
 }
 
-/* 資訊卡片自適應寬度，貼齊手機左右邊距 */
 .info-box {
     background: #ffffff;
     padding: 20px 16px;
@@ -100,13 +112,13 @@ header h1 img {
     border-top: 4px solid #f59e0b;
 }
 
-/* 手機表單上下堆疊，寬度 100% 自適應 */
+/* 考生姓名與電子郵件欄位：調整為同一行（左標籤、右輸入框） */
 .candidate-form .form-row {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 12px;
-    padding: 8px;
+    padding: 8px 10px;
     border-radius: 6px;
     width: 100%;
 }
@@ -116,15 +128,18 @@ header h1 img {
 }
 
 .candidate-form label {
-    width: 100%;
+    width: 95px;
+    flex-shrink: 0;
     font-weight: bold;
     color: #444;
-    margin-bottom: 4px;
     font-size: 0.95rem;
+    white-space: nowrap;
+    text-align: left;
 }
 
 .candidate-form input {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -251,33 +266,4 @@ header h1 img {
 
 .hidden {
     display: none !important;
-}
-
-/* 💻 桌機版寬螢幕優化 (螢幕寬度大於 768px) */
-@media (min-width: 768px) {
-    header h1 {
-        flex-direction: row;
-        font-size: 1.6rem;
-        white-space: normal;
-    }
-    
-    header h1 img {
-        width: 32px;
-        height: 32px;
-        margin-right: 8px !important;
-    }
-
-    .candidate-form .form-row {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .candidate-form label {
-        width: 110px;
-        margin-bottom: 0;
-    }
-
-    .info-box {
-        padding: 30px;
-    }
 }
