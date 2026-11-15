@@ -2,7 +2,7 @@
     --tiger-yellow: #F3A000;
     --tiger-yellow-glow: rgba(243, 160, 0, 0.4);
     --tiger-bg: #f8f9fa; 
-    --card-bg: rgba(255, 255, 255, 0.75); /* 半透明度讓 LOGO 透出 */
+    --card-bg: rgba(255, 255, 255, 0.85); /* 稍微調高一點點不透明度，確保 LOGO 放大後不會干擾文字閱讀 */
     --text-dark: #2c3e50; 
     --border-color: rgba(0, 0, 0, 0.08); 
 }
@@ -17,6 +17,7 @@ body {
     position: relative;
 }
 
+/* 背景浮水印 */
 .watermark {
     position: fixed;
     top: 0;
@@ -26,8 +27,8 @@ body {
     background-image: url('assets/Virtual_Tigerair_Taiwan_LOGO_cht_02.png'); 
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 55%;
-    opacity: 0.12; 
+    background-size: 85%; /* ★ 放大背景 LOGO (原本 55%) */
+    opacity: 0.10; 
     z-index: -1; 
     pointer-events: none; 
 }
@@ -39,6 +40,7 @@ body {
     z-index: 1;
 }
 
+/* 頂部標題列 */
 header {
     display: flex;
     justify-content: space-between;
@@ -55,6 +57,7 @@ h1 { font-size: 1.6rem; margin: 0; color: #e69500; letter-spacing: 1px; }
 
 .hidden { display: none !important; }
 
+/* 共用卡片樣式 */
 .info-box, .result-box, .question-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -89,20 +92,73 @@ h1 { font-size: 1.6rem; margin: 0; color: #e69500; letter-spacing: 1px; }
 }
 .options input[type="radio"] { margin-right: 12px; accent-color: var(--tiger-yellow); transform: scale(1.2); }
 
-.candidate-form { max-width: 550px; margin: 0 auto; padding: 30px 40px; }
-.form-row { display: flex; align-items: center; padding: 16px 20px; font-size: 1.1rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05); transition: background 0.3s; }
+/* --- 考生資訊登錄表單 --- */
+.candidate-form { 
+    max-width: 420px; /* ★ 縮小表單寬度 (原本 550px) */
+    margin: 0 auto; 
+    padding: 25px 30px; /* ★ 縮小內距 */
+}
+
+.form-row { 
+    display: flex; 
+    align-items: center; 
+    padding: 12px 15px; /* ★ 縮小行距 */
+    font-size: 1rem; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+    transition: background 0.3s; 
+}
+
 .form-row:last-of-type { border-bottom: none; }
 .form-row.alt-bg { background-color: rgba(0, 0, 0, 0.02); border-radius: 8px; }
 .form-row:hover { background-color: rgba(0, 0, 0, 0.04); border-radius: 8px; }
 
-.form-row label { width: 100px; text-align: right; margin-right: 20px; color: #555; letter-spacing: 1px; font-size: 1rem; font-weight: bold; flex-shrink: 0; }
-.form-row input { flex: 1; width: 100%; min-width: 0; padding: 12px 14px; font-size: 1.05rem; background: rgba(255, 255, 255, 0.8); color: #333; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: all 0.3s ease; }
+.form-row label { 
+    width: 85px; /* ★ 縮小標籤寬度 */
+    text-align: right; 
+    margin-right: 15px; 
+    color: #555; 
+    letter-spacing: 1px; 
+    font-size: 0.95rem; 
+    font-weight: bold; 
+    flex-shrink: 0; 
+}
+
+.form-row input { 
+    flex: 1; 
+    width: 100%; 
+    min-width: 0; 
+    padding: 10px 12px; /* ★ 縮小輸入框高度 */
+    font-size: 1rem; 
+    background: rgba(255, 255, 255, 0.8); 
+    color: #333; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    outline: none; 
+    transition: all 0.3s ease; 
+}
+
 .form-row input::placeholder { color: #aaa; }
 .form-row input:focus { border-color: var(--tiger-yellow); box-shadow: 0 0 0 3px var(--tiger-yellow-glow); background: #fff; }
 
-.tiger-btn { background: linear-gradient(135deg, #FFC107, var(--tiger-yellow)); color: #111; font-weight: 800; letter-spacing: 2px; border: none; padding: 15px 20px; font-size: 1.15rem; border-radius: 8px; cursor: pointer; display: block; width: 100%; margin-top: 25px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 4px 15px rgba(243, 160, 0, 0.3); }
+.tiger-btn { 
+    background: linear-gradient(135deg, #FFC107, var(--tiger-yellow)); 
+    color: #111; 
+    font-weight: 800; 
+    letter-spacing: 2px; 
+    border: none; 
+    padding: 12px 20px; /* ★ 按鈕稍微縮小 */
+    font-size: 1.1rem; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    display: block; 
+    width: 100%; 
+    margin-top: 25px; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    box-shadow: 0 4px 15px rgba(243, 160, 0, 0.3); 
+}
+
 .tiger-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(243, 160, 0, 0.5); background: linear-gradient(135deg, #FFcd38, #f8ae1b); }
-#confirm-info-btn { width: 100%; margin: 30px auto 0; }
+#confirm-info-btn { width: 100%; margin: 25px auto 0; }
 
 .correct { background-color: rgba(40, 167, 69, 0.1) !important; border-color: #28a745 !important; }
 .wrong { background-color: rgba(220, 53, 69, 0.1) !important; border-color: #dc3545 !important; }
@@ -115,5 +171,5 @@ h1 { font-size: 1.6rem; margin: 0; color: #e69500; letter-spacing: 1px; }
     .form-row { flex-direction: column; align-items: flex-start; padding: 12px 15px; }
     .form-row label { width: 100%; text-align: left; margin-bottom: 8px; }
     .candidate-form, .info-box, .question-card { padding: 20px 15px; }
-    .watermark { background-size: 80%; }
+    .watermark { background-size: 110%; /* ★ 手機版 LOGO 同步放大 */ }
 }
