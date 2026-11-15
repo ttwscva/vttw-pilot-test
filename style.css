@@ -1,5 +1,5 @@
 /* ==========================================
-   vTTW 飛行員筆試系統 - 樣式表 (手機直式完美優化版)
+   vTTW 飛行員筆試系統 - 樣式表 (老虎頭 LOGO 對齊優化版)
    ========================================== */
 
 * {
@@ -20,7 +20,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 背景浮水印 */
+/* 背景浮水印 (維持您原本的設定與清晰度) */
 .watermark {
     position: fixed;
     top: 50%;
@@ -54,9 +54,9 @@ header {
     justify-content: center;
 }
 
-/* 標頭排版：左側放大 Logo，右側兩行文字完美置中對齊 */
+/* 標頭排版：左側放大老虎頭 Logo，右側兩行文字，Logo 完美垂直置中對齊兩行文字中間 */
 header h1 {
-    font-size: clamp(1rem, 3.8vw, 1.6rem);
+    font-size: clamp(1rem, 3.8vw, 1.5rem);
     color: #d97706;
     display: inline-flex;
     flex-direction: row;
@@ -67,8 +67,8 @@ header h1 {
 }
 
 .header-logo {
-    width: 48px;
-    height: 48px;
+    width: 44px; /* 放大老虎頭尺寸 */
+    height: 44px;
     object-fit: contain;
     flex-shrink: 0;
 }
@@ -112,7 +112,7 @@ header h1 {
     border-top: 4px solid #f59e0b;
 }
 
-/* 考生姓名與電子郵件欄位：調整為同一行（左標籤、右輸入框） */
+/* 考生姓名與電子郵件欄位：維持在同一行（左標籤、右輸入框） */
 .candidate-form .form-row {
     display: flex;
     flex-direction: row;
