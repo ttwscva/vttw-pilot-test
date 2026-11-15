@@ -1,23 +1,24 @@
 :root {
     --tiger-yellow: #F3A000;
-    --tiger-yellow-glow: rgba(243, 160, 0, 0.3);
-    --tiger-dark: #0f1012; /* 讓背景稍微再深一點，提升對比 */
-    --card-bg: rgba(25, 25, 25, 0.65); /* 半透明深灰色，增強毛玻璃質感 */
-    --text-light: #F5F5F5;
-    --border-color: rgba(255, 255, 255, 0.08); /* 極淡的邊線 */
+    --tiger-yellow-glow: rgba(243, 160, 0, 0.4);
+    /* 將背景轉換為白/淺灰底色 */
+    --tiger-bg: #f8f9fa; 
+    --card-bg: rgba(255, 255, 255, 0.95); 
+    --text-dark: #2c3e50; 
+    --border-color: rgba(0, 0, 0, 0.08); 
 }
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", sans-serif;
-    background-color: var(--tiger-dark);
-    color: var(--text-light);
+    background-color: var(--tiger-bg);
+    color: var(--text-dark);
     margin: 0;
     padding: 30px 20px;
     min-height: 100vh;
     position: relative;
 }
 
-/* 背景浮水印 */
+/* 背景浮水印 (白底需再淡化) */
 .watermark {
     position: fixed;
     top: 0;
@@ -28,7 +29,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 55%;
-    opacity: 0.12; /* 稍微再淡化，避免干擾閱讀 */
+    opacity: 0.06; 
     z-index: -1; 
     pointer-events: none; 
 }
@@ -45,7 +46,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border-color); /* 改用細緻的半透明線條 */
+    border-bottom: 2px solid var(--tiger-yellow);
     padding-bottom: 20px;
     margin-bottom: 40px;
 }
@@ -53,31 +54,29 @@ header {
 h1 { 
     font-size: 1.6rem; 
     margin: 0; 
-    color: var(--tiger-yellow); 
+    color: #e69500; 
     letter-spacing: 1px;
-    text-shadow: 0 2px 10px rgba(243, 160, 0, 0.2); /* 標題微發光 */
 }
 #timer { 
     font-weight: bold; 
-    color: #ff6b6b; 
+    color: #ff4757; 
     font-size: 1.2rem; 
-    background: rgba(255, 107, 107, 0.1);
+    background: rgba(255, 71, 87, 0.1);
     padding: 8px 16px;
-    border-radius: 20px; /* 膠囊狀計時器 */
+    border-radius: 20px;
 }
 
 .hidden { display: none !important; }
 
-/* 共用卡片樣式 (毛玻璃特效) */
+/* 共用卡片樣式 */
 .info-box, .result-box, .question-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 16px; /* 增加圓角 */
+    border-radius: 12px;
     padding: 30px;
     margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 柔和深陰影 */
-    backdrop-filter: blur(12px); /* 毛玻璃模糊效果 */
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); /* 淺色陰影 */
+    backdrop-filter: blur(10px);
 }
 
 .result-box { text-align: center; }
@@ -93,7 +92,7 @@ h1 {
     display: block;
     padding: 14px 18px;
     margin-bottom: 10px;
-    background: rgba(255, 255, 255, 0.03);
+    background: #fff;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
@@ -101,13 +100,14 @@ h1 {
 }
 
 .options label:hover { 
-    background: rgba(255, 255, 255, 0.08); 
+    background: #fffaf0; 
     border-color: var(--tiger-yellow); 
-    transform: translateX(4px); /* 滑鼠游標移過去時微微往右平移 */
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(243, 160, 0, 0.1);
 }
 .options input[type="radio"] { margin-right: 12px; accent-color: var(--tiger-yellow); transform: scale(1.2); }
 
-/* --- 考生資訊登錄表單美化 --- */
+/* --- 考生資訊登錄表單美化 (白底版) --- */
 .candidate-form {
     max-width: 550px;
     margin: 0 auto;
@@ -119,19 +119,18 @@ h1 {
     align-items: center;
     padding: 16px 20px;
     font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: background 0.3s;
 }
 
 .form-row:last-of-type { border-bottom: none; }
 
-/* 淡化斑馬紋，並加上圓角 */
 .form-row.alt-bg {
-    background-color: rgba(255, 255, 255, 0.015); 
+    background-color: rgba(0, 0, 0, 0.02); 
     border-radius: 8px;
 }
 .form-row:hover {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(0, 0, 0, 0.04);
     border-radius: 8px;
 }
 
@@ -139,64 +138,50 @@ h1 {
     width: 110px;
     text-align: right;
     margin-right: 25px;
-    color: #a0a5aa;
+    color: #666;
     letter-spacing: 2px;
     font-size: 1rem;
+    font-weight: bold;
 }
 
-.form-row span {
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-.form-row .text-red {
-    color: #ff5252;
-    background: rgba(255, 82, 82, 0.1);
-    padding: 4px 10px;
-    border-radius: 4px;
-}
-
-/* 輸入框質感提升 */
 .form-row input {
     flex: 1;
     padding: 12px 16px;
     font-size: 1.05rem;
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
     transition: all 0.3s ease;
 }
-.form-row input::placeholder { color: #555; }
+.form-row input::placeholder { color: #aaa; }
 .form-row input:focus {
     border-color: var(--tiger-yellow);
-    box-shadow: 0 0 0 3px var(--tiger-yellow-glow); /* 外圍光暈 */
-    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 3px var(--tiger-yellow-glow);
 }
 
 /* 現代化虎航按鈕 */
 .tiger-btn {
-    background: linear-gradient(135deg, #FFC107, var(--tiger-yellow)); /* 微漸層 */
+    background: linear-gradient(135deg, #FFC107, var(--tiger-yellow));
     color: #111;
     font-weight: 800;
     letter-spacing: 2px;
     border: none;
     padding: 15px 20px;
     font-size: 1.15rem;
-    border-radius: 10px; /* 按鈕導圓角 */
+    border-radius: 8px; 
     cursor: pointer;
     display: block;
     width: 100%;
     margin-top: 25px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 4px 15px rgba(243, 160, 0, 0.25); /* 按鈕預設陰影 */
+    box-shadow: 0 4px 15px rgba(243, 160, 0, 0.3);
 }
 
 .tiger-btn:hover { 
-    transform: translateY(-2px); /* 懸浮效果 */
-    box-shadow: 0 8px 25px rgba(243, 160, 0, 0.4); 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px rgba(243, 160, 0, 0.5); 
     background: linear-gradient(135deg, #FFcd38, #f8ae1b);
 }
 
@@ -206,16 +191,16 @@ h1 {
 }
 
 /* 解析狀態 */
-.correct { background-color: rgba(40, 167, 69, 0.15) !important; border-color: #28a745 !important; }
-.wrong { background-color: rgba(220, 53, 69, 0.15) !important; border-color: #dc3545 !important; }
+.correct { background-color: rgba(40, 167, 69, 0.1) !important; border-color: #28a745 !important; }
+.wrong { background-color: rgba(220, 53, 69, 0.1) !important; border-color: #dc3545 !important; }
 .explanation { 
     margin-top: 15px; 
     padding: 15px; 
-    background: rgba(0, 0, 0, 0.2); 
-    border-left: 4px solid #aaa;
+    background: rgba(0, 0, 0, 0.03); 
+    border-left: 4px solid #888;
     border-radius: 6px; 
     font-size: 0.95rem; 
-    color: #ccc; 
+    color: #444; 
     line-height: 1.5;
 }
-.score { font-size: 3rem; font-weight: 900; color: var(--tiger-yellow); margin: 25px 0; text-shadow: 0 4px 15px rgba(243, 160, 0, 0.3); }
+.score { font-size: 3rem; font-weight: 900; color: var(--tiger-yellow); margin: 25px 0; text-shadow: 0 2px 10px rgba(243, 160, 0, 0.2); }
