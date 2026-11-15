@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽機車線上隨機模擬考系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚗 汽機車駕照模擬考系統</h1>
+            <div id="timer" class="hidden">剩餘時間：<span id="time-display">30:00</span></div>
+        </header>
+
+        <main>
+            <!-- 開始畫面 -->
+            <section id="start-screen">
+                <p>本測驗為模擬系統，點擊下方按鈕開始計時。</p>
+                <button id="start-btn" class="primary-btn">開始測驗</button>
+            </section>
+
+            <!-- 測驗畫面 -->
+            <section id="quiz-screen" class="hidden">
+                <div id="questions-container">
+                    <!-- 題目會透過 JS 動態產生於此 -->
+                </div>
+                <button id="submit-btn" class="primary-btn submit">📝 確定交卷</button>
+            </section>
+
+            <!-- 結果畫面 -->
+            <section id="result-screen" class="hidden">
+                <h2>測驗結果</h2>
+                <div id="score-display" class="score"></div>
+                <button id="retry-btn" class="primary-btn">重新測驗</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
