@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vTTW 虛擬台灣虎航 - 飛行員筆試系統</title>
-    <!-- ★ 1. 設定瀏覽器分頁 Favicon -->
     <link rel="icon" href="assets/favicon.1.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,10 +13,12 @@
 
     <div class="container">
         <header>
-            <!-- ★ 2. 將文字老虎頭換成 img 圖片 -->
             <h1>
-                <img src="assets/favicon.1.png" alt="vTTW Logo" style="width: 28px; height: 28px; vertical-align: middle; margin-right: 8px; object-fit: contain;">
-                虛擬台灣虎航 (vTTW) 飛行員筆試系統
+                <img src="assets/Virtual_Tigerair_Taiwan_LOGO_cht_02.png" alt="vTTW Logo" class="header-logo">
+                <div class="header-text">
+                    <span>虛擬台灣虎航 (vTTW)</span>
+                    <span>飛行員筆試系統</span>
+                </div>
             </h1>
             <div id="timer" class="hidden">✈️ 剩餘時間：<span id="time-display">30:00</span></div>
         </header>
@@ -52,11 +53,11 @@
                     <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 15px 0;">
                     <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 0;">
                         <strong>📚 考題出處與參考依據：</strong><br>
-                        本題庫參照國際航空標準與手冊編撰，相關官方參考資源如下：<br>
+                        本題庫嚴格參照國際航空權威標準與手冊編撰，相關官方參考資源如下：<br>
                         • <strong>FAA PHAK</strong>：<a href="https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/pilot_handbook" target="_blank" style="color: #e69500; text-decoration: none;">Pilot's Handbook of Aeronautical Knowledge</a><br>
                         • <strong>FAA AFH</strong>：<a href="https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook" target="_blank" style="color: #e69500; text-decoration: none;">Airplane Flying Handbook</a><br>
                         • <strong>FAA AIM</strong>：<a href="https://www.faa.gov/air_traffic/publications/atpubs/aim_html/" target="_blank" style="color: #e69500; text-decoration: none;">Aeronautical Information Manual</a><br>
-                        • <strong>ICAO Standards</strong>：<a href="https://www.icao.net/safety/pages/default.aspx" target="_blank" style="color: #e69500; text-decoration: none;">International Civil Aviation Organization</a>
+                        • <strong>ICAO Standards</strong>：<a href="https://www.icao.int/safety/pages/default.aspx" target="_blank" style="color: #e69500; text-decoration: none;">International Civil Aviation Organization</a>
                     </p>
                 </div>
                 <button id="start-btn" class="tiger-btn">開始測驗</button>
