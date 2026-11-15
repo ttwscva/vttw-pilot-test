@@ -3,36 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>汽機車線上隨機模擬考系統</title>
+    <title>vTTW 虛擬台灣虎航 - 飛行員筆試系統</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 背景浮水印 -->
+    <div class="watermark"></div>
+
     <div class="container">
         <header>
-            <h1>🚗 汽機車駕照模擬考系統</h1>
-            <div id="timer" class="hidden">剩餘時間：<span id="time-display">30:00</span></div>
+            <h1>🐯 虛擬台灣虎航 (vTTW) 飛行員筆試系統</h1>
+            <div id="timer" class="hidden">✈️ 剩餘時間：<span id="time-display">30:00</span></div>
         </header>
 
         <main>
-            <!-- 開始畫面 -->
+            <!-- 畫面一：開始畫面 -->
             <section id="start-screen">
-                <p>本測驗為模擬系統，點擊下方按鈕開始計時。</p>
-                <button id="start-btn" class="primary-btn">開始測驗</button>
+                <div class="info-box">
+                    <p><strong>考試規則與說明：</strong></p>
+                    <p>本測驗為 vTTW 飛行員資格筆試，請於限時內完成。送出後將即時結算分數與 vAMSYS / A320 相關規範解析。</p>
+                </div>
+                <button id="start-btn" class="tiger-btn">開始測驗</button>
             </section>
 
-            <!-- 測驗畫面 -->
+            <!-- 畫面二：測驗畫面 (預設隱藏) -->
             <section id="quiz-screen" class="hidden">
                 <div id="questions-container">
-                    <!-- 題目會透過 JS 動態產生於此 -->
+                    <!-- 題目由 JS 動態生成於此，保持置中 -->
                 </div>
-                <button id="submit-btn" class="primary-btn submit">📝 確定交卷</button>
+                <button id="submit-btn" class="tiger-btn submit">📤 確定交卷</button>
             </section>
 
-            <!-- 結果畫面 -->
+            <!-- 畫面三：結果畫面 (預設隱藏，交卷後才顯示) -->
             <section id="result-screen" class="hidden">
-                <h2>測驗結果</h2>
-                <div id="score-display" class="score"></div>
-                <button id="retry-btn" class="primary-btn">重新測驗</button>
+                <div class="result-box">
+                    <h2>測驗結果</h2>
+                    <div id="score-display" class="score"></div>
+                    <button id="retry-btn" class="tiger-btn">重新挑戰</button>
+                </div>
             </section>
         </main>
     </div>
