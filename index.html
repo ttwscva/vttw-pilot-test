@@ -17,7 +17,7 @@
         </header>
 
         <main>
-            <!-- 畫面零：考生資訊登錄 (新增此區塊) -->
+            <!-- 畫面零：考生資訊登錄 -->
             <section id="candidate-screen">
                 <div class="info-box candidate-form">
                     <div class="form-row">
@@ -48,7 +48,7 @@
                 </div>
             </section>
 
-            <!-- 畫面一：開始畫面 (預設改為隱藏) -->
+            <!-- 畫面一：開始畫面 (預設隱藏) -->
             <section id="start-screen" class="hidden">
                 <div class="info-box">
                     <p><strong>考試規則與說明：</strong></p>
@@ -57,15 +57,15 @@
                 <button id="start-btn" class="tiger-btn">開始測驗</button>
             </section>
 
-            <!-- 畫面二：測驗畫面 (維持不變) -->
+            <!-- 畫面二：測驗畫面 (預設隱藏) -->
             <section id="quiz-screen" class="hidden">
                 <div id="questions-container">
-                    <!-- 題目由 JS 動態生成 -->
+                    <!-- 題目由 JS 動態生成於此 -->
                 </div>
                 <button id="submit-btn" class="tiger-btn submit">📤 確定交卷</button>
             </section>
 
-            <!-- 畫面三：結果畫面 (維持不變) -->
+            <!-- 畫面三：結果畫面 (預設隱藏，交卷後才顯示) -->
             <section id="result-screen" class="hidden">
                 <div class="result-box">
                     <h2>測驗結果</h2>
