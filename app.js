@@ -1,5 +1,5 @@
 // ==========================================
-// 飛行員基礎學科筆試題庫 - 第一批次 (共 55 題)
+// 飛行員基礎學科筆試題庫 - 第一批次 (共 200 題)
 // ==========================================
 const questionBank = [
     { id: 1, type: "choice", question: "在傳統六大儀表中，唯一能同時指示飛機「俯仰 (Pitch)」與「滾轉 (Roll)」姿態的儀表為何？", options: ["姿態儀 (Attitude Indicator)", "航向指示器 (Heading Indicator)", "高度表 (Altimeter)", "空速表 (Airspeed Indicator)"], answer: 0, explanation: "姿態儀利用陀螺儀剛性原理，是駕駛艙中唯一能直觀顯示飛機相對於真實地平線姿態的儀表。" },
