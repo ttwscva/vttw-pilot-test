@@ -25,24 +25,12 @@
                         <input type="text" id="candidate-name" placeholder="如：王ＯＯ" required>
                     </div>
                     <div class="form-row alt-bg">
-                        <label>證號：</label>
-                        <input type="text" id="candidate-id" placeholder="如：Z198765598 或 VID" required>
+                        <label>電子郵件：</label>
+                        <input type="email" id="candidate-email" placeholder="如：pilot@vttw.com" required>
                     </div>
                     <div class="form-row">
-                        <label>生日：</label>
-                        <input type="date" id="candidate-dob">
-                    </div>
-                    <div class="form-row alt-bg">
-                        <label>考別：</label>
-                        <span>虛擬飛行員</span>
-                    </div>
-                    <div class="form-row">
-                        <label>照類：</label>
-                        <span>A320 Type Rating</span>
-                    </div>
-                    <div class="form-row alt-bg">
-                        <label>考試類型：</label>
-                        <span class="text-red">筆試 (中)</span>
+                        <label>考試日期：</label>
+                        <input type="date" id="candidate-date" required>
                     </div>
                     <button id="confirm-info-btn" class="tiger-btn">確定</button>
                 </div>
@@ -70,7 +58,7 @@
                 <div class="result-box">
                     <h2>測驗結果</h2>
                     <!-- 顯示考生姓名與分數 -->
-                    <div id="result-candidate-info" style="font-size: 1.2rem; margin-bottom: 10px; color: #aaa;"></div>
+                    <div id="result-candidate-info" style="font-size: 1.2rem; margin-bottom: 10px; color: #666;"></div>
                     <div id="score-display" class="score"></div>
                     <button id="retry-btn" class="tiger-btn">重新挑戰</button>
                 </div>
