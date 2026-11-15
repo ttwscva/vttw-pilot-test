@@ -1,5 +1,5 @@
 /* ==========================================
-   vTTW 飛行員筆試系統 - 樣式表 (背景 LOGO 加深版)
+   vTTW 飛行員筆試系統 - 樣式表 (手機 RWD 優化版)
    ========================================== */
 
 * {
@@ -20,7 +20,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 背景浮水印：已將透明度從 0.05 提升至 0.2，讓圖案更清楚 */
+/* 背景浮水印 */
 .watermark {
     position: fixed;
     top: 50%;
@@ -43,7 +43,7 @@ body {
     z-index: 1;
     width: 100%;
     max-width: 800px;
-    padding: 20px;
+    padding: 15px;
 }
 
 header {
@@ -51,13 +51,23 @@ header {
     margin-bottom: 20px;
 }
 
+/* 標題與 LOGO 樣式優化 */
 header h1 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #d97706;
     display: flex;
+    flex-direction: column; /* 手機上一律改為上下置中，避免被擠壓換行 */
     align-items: center;
     justify-content: center;
     gap: 8px;
+    line-height: 1.4;
+}
+
+header h1 img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-right: 0 !important;
 }
 
 #timer {
@@ -69,7 +79,6 @@ header h1 {
 
 #candidate-screen, #start-screen {
     width: 100%;
-    max-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +87,7 @@ header h1 {
 
 .info-box {
     background: #ffffff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
@@ -89,11 +98,13 @@ header h1 {
     border-top: 4px solid #f59e0b;
 }
 
+/* 考生登入表單排版 (手機版改為上下堆疊，徹底解決標籤斷行) */
 .candidate-form .form-row {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* 手機預設上下排列 */
+    align-items: flex-start;
     margin-bottom: 15px;
-    padding: 8px 12px;
+    padding: 10px;
     border-radius: 6px;
 }
 
@@ -102,14 +113,15 @@ header h1 {
 }
 
 .candidate-form label {
-    width: 110px;
+    width: 100%;
     font-weight: bold;
     color: #444;
+    margin-bottom: 6px; /* 標籤與輸入框的間距 */
 }
 
 .candidate-form input {
-    flex: 1;
-    padding: 10px 12px;
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
@@ -156,7 +168,7 @@ header h1 {
 
 .question-card {
     background: #ffffff;
-    padding: 24px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
@@ -164,15 +176,15 @@ header h1 {
 }
 
 .question-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #222;
 }
 
 .options label {
     display: block;
-    padding: 10px 14px;
+    padding: 12px;
     margin-bottom: 8px;
     background: #fdfdfd;
     border: 1px solid #e5e7eb;
@@ -208,7 +220,7 @@ header h1 {
 
 .result-box {
     background: #ffffff;
-    padding: 40px;
+    padding: 30px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -218,13 +230,13 @@ header h1 {
 }
 
 .result-box h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 15px;
     color: #333;
 }
 
 .score {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: #d97706;
     margin: 20px 0;
@@ -232,4 +244,32 @@ header h1 {
 
 .hidden {
     display: none !important;
+}
+
+/* 💻 桌機版寬螢幕優化 (螢幕寬度大於 768px 時恢復左右並排) */
+@media (min-width: 768px) {
+    header h1 {
+        flex-direction: row; /* 桌機恢復左右排列 */
+        font-size: 1.6rem;
+    }
+    
+    header h1 img {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px !important;
+    }
+
+    .candidate-form .form-row {
+        flex-direction: row; /* 桌機表單恢復左右並排 */
+        align-items: center;
+    }
+
+    .candidate-form label {
+        width: 110px;
+        margin-bottom: 0;
+    }
+
+    .info-box {
+        padding: 30px;
+    }
 }
