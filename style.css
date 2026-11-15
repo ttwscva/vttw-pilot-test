@@ -1,9 +1,9 @@
 :root {
     --tiger-yellow: #F3A000;
     --tiger-yellow-glow: rgba(243, 160, 0, 0.4);
-    /* 將背景轉換為白/淺灰底色 */
     --tiger-bg: #f8f9fa; 
-    --card-bg: rgba(255, 255, 255, 0.95); 
+    /* 修正1: 降低卡片背景不透明度 (從 0.95 降至 0.75)，讓背景 LOGO 可以透出來 */
+    --card-bg: rgba(255, 255, 255, 0.75); 
     --text-dark: #2c3e50; 
     --border-color: rgba(0, 0, 0, 0.08); 
 }
@@ -18,7 +18,7 @@ body {
     position: relative;
 }
 
-/* 背景浮水印 (白底需再淡化) */
+/* 背景浮水印 */
 .watermark {
     position: fixed;
     top: 0;
@@ -29,7 +29,8 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 55%;
-    opacity: 0.06; 
+    /* 配合卡片變透，浮水印稍微加深一點點讓它明顯些 */
+    opacity: 0.12; 
     z-index: -1; 
     pointer-events: none; 
 }
@@ -49,6 +50,9 @@ header {
     border-bottom: 2px solid var(--tiger-yellow);
     padding-bottom: 20px;
     margin-bottom: 40px;
+    /* 讓標題在手機上也能自動折行對齊 */
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 h1 { 
@@ -75,8 +79,9 @@ h1 {
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 25px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); /* 淺色陰影 */
-    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); /* 稍微加深陰影增強立體感 */
+    backdrop-filter: blur(12px); /* 增強毛玻璃模糊度 */
+    -webkit-backdrop-filter: blur(12px); /* 支援 iOS Safari */
 }
 
 .result-box { text-align: center; }
@@ -92,7 +97,7 @@ h1 {
     display: block;
     padding: 14px 18px;
     margin-bottom: 10px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.6); /* 選項背景也改成半透明 */
     border: 1px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
@@ -100,18 +105,19 @@ h1 {
 }
 
 .options label:hover { 
-    background: #fffaf0; 
+    background: rgba(255, 255, 255, 0.9); 
     border-color: var(--tiger-yellow); 
     transform: translateX(4px);
     box-shadow: 0 2px 8px rgba(243, 160, 0, 0.1);
 }
 .options input[type="radio"] { margin-right: 12px; accent-color: var(--tiger-yellow); transform: scale(1.2); }
 
-/* --- 考生資訊登錄表單美化 (白底版) --- */
+/* --- 考生資訊登錄表單 --- */
 .candidate-form {
     max-width: 550px;
     margin: 0 auto;
-    padding: 20px 30px 40px; 
+    /* 電腦版內距 */
+    padding: 30px 40px; 
 }
 
 .form-row {
@@ -135,20 +141,25 @@ h1 {
 }
 
 .form-row label {
-    width: 110px;
+    width: 100px;
     text-align: right;
-    margin-right: 25px;
-    color: #666;
-    letter-spacing: 2px;
+    margin-right: 20px;
+    color: #555;
+    letter-spacing: 1px;
     font-size: 1rem;
     font-weight: bold;
+    /* 避免文字被壓縮 */
+    flex-shrink: 0; 
 }
 
 .form-row input {
     flex: 1;
-    padding: 12px 16px;
+    /* 避免輸入框超出邊界 */
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
     font-size: 1.05rem;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.8);
     color: #333;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -159,9 +170,9 @@ h1 {
 .form-row input:focus {
     border-color: var(--tiger-yellow);
     box-shadow: 0 0 0 3px var(--tiger-yellow-glow);
+    background: #fff;
 }
 
-/* 現代化虎航按鈕 */
 .tiger-btn {
     background: linear-gradient(135deg, #FFC107, var(--tiger-yellow));
     color: #111;
@@ -186,11 +197,11 @@ h1 {
 }
 
 #confirm-info-btn {
-    width: 85%;
-    margin: 35px auto 0;
+    width: 100%;
+    margin: 30px auto 0;
 }
 
-/* 解析狀態 */
+/* 解析與結果狀態 */
 .correct { background-color: rgba(40, 167, 69, 0.1) !important; border-color: #28a745 !important; }
 .wrong { background-color: rgba(220, 53, 69, 0.1) !important; border-color: #dc3545 !important; }
 .explanation { 
@@ -204,3 +215,38 @@ h1 {
     line-height: 1.5;
 }
 .score { font-size: 3rem; font-weight: 900; color: var(--tiger-yellow); margin: 25px 0; text-shadow: 0 2px 10px rgba(243, 160, 0, 0.2); }
+
+/* =========================================
+   修正2: 手機版響應式設計 (Media Queries)
+   ========================================= */
+@media (max-width: 600px) {
+    body {
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    /* 手機版：將表單改為垂直排列 */
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 15px;
+    }
+
+    .form-row label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    .candidate-form, .info-box, .question-card {
+        padding: 20px 15px;
+    }
+    
+    .watermark {
+        /* 在手機直向螢幕上，讓 LOGO 稍微縮小避免過滿 */
+        background-size: 80%;
+    }
+}
