@@ -1,5 +1,5 @@
 /* ==========================================
-   vTTW 飛行員筆試系統 - 樣式表 (修正版)
+   vTTW 飛行員筆試系統 - 樣式表 (浮水印修正版)
    ========================================== */
 
 * {
@@ -20,20 +20,20 @@ body {
     overflow-x: hidden;
 }
 
-/* 1. 修正背景 LOGO 太大的問題：縮小尺寸並妥善置中對齊 */
+/* 背景浮水印：已對應您正確的檔名 Virtual_Tigerair_Taiwan_LOGO_cht_02.png */
 .watermark {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
-    max-width: 1100px;
-    height: 80vh;
-    background-image: url('assets/watermark.png'); /* 請確保檔名與路徑正確 */
+    width: 75vw;
+    max-width: 1000px;
+    height: 75vh;
+    background-image: url('assets/Virtual_Tigerair_Taiwan_LOGO_cht_02.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.05;
+    opacity: 0.05; /* 5% 的淡化透明度 */
     z-index: 0;
     pointer-events: none;
 }
@@ -60,7 +60,6 @@ header h1 {
     gap: 8px;
 }
 
-/* 碼錶計時器樣式 */
 #timer {
     margin-top: 8px;
     font-size: 1.1rem;
@@ -68,7 +67,6 @@ header h1 {
     color: #dc3545;
 }
 
-/* 2. 單頁不滾動設定：限制高度並防止畫面溢出 */
 #candidate-screen, #start-screen {
     width: 100%;
     max-height: 80vh;
@@ -91,7 +89,6 @@ header h1 {
     border-top: 4px solid #f59e0b;
 }
 
-/* 考生登入表單排版 */
 .candidate-form .form-row {
     display: flex;
     align-items: center;
@@ -125,7 +122,6 @@ header h1 {
     box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
 }
 
-/* 虎航經典橘黃按鈕樣式 */
 .tiger-btn {
     display: block;
     width: 100%;
@@ -152,7 +148,6 @@ header h1 {
     transform: translateY(1px);
 }
 
-/* 測驗題目卡片區塊 (支援作答時捲動) */
 #quiz-screen {
     max-height: 80vh;
     overflow-y: auto;
@@ -195,7 +190,6 @@ header h1 {
     margin-right: 10px;
 }
 
-/* 交卷後的選項正解標記色彩 */
 .options label.correct {
     background-color: #d4edda !important;
     border-color: #c3e6cb !important;
@@ -212,7 +206,6 @@ header h1 {
     color: #444;
 }
 
-/* 結果結算畫面 */
 .result-box {
     background: #ffffff;
     padding: 40px;
