@@ -23,7 +23,8 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('Virtual_Tigerair_Taiwan_LOGO_cht_02.png'); 
+    /* 已修正為 assets/ 資料夾路徑 */
+    background-image: url('assets/Virtual_Tigerair_Taiwan_LOGO_cht_02.png'); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
