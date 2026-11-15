@@ -347,14 +347,30 @@ function submitExam() {
         const explanationDiv = document.getElementById(`exp-${index}`);
         const userAnswer = selected ? parseInt(selected.value) : -1;
         
+        // 1. 標記正確答案 (綠色背景)
         optionsLabels[q.answer].classList.add('correct');
+        // 在正確選項後方加上明確的文字提示
+        const correctBadge = document.createElement('span');
+        correctBadge.innerHTML = ' <strong style="color: #155724; font-size: 0.95rem;">(✅ 正確解答)</strong>';
+        optionsLabels[q.answer].appendChild(correctBadge);
         
+        // 2. 判斷考生作答狀況
         if (userAnswer === q.answer) {
+            // 答對
             correctCount++;
         } else if (userAnswer !== -1) {
+            // 答錯：標記錯誤答案 (紅色背景)
             optionsLabels[userAnswer].classList.add('wrong');
+            // 在錯誤選項後方加上明確的文字提示
+            const wrongBadge = document.createElement('span');
+            wrongBadge.innerHTML = ' <strong style="color: #721c24; font-size: 0.95rem;">(❌ 您的作答)</strong>';
+            optionsLabels[userAnswer].appendChild(wrongBadge);
+        } else {
+            // 未作答提示
+            explanationDiv.innerHTML = `<span style="color: #dc3545; font-weight: bold;">⚠️ 您此題未作答</span><br><br>` + explanationDiv.innerHTML;
         }
         
+        // 顯示解析並鎖定選項
         explanationDiv.classList.remove('hidden');
         const allRadios = document.querySelectorAll(`input[name="q-${index}"]`);
         allRadios.forEach(radio => radio.disabled = true);
@@ -363,6 +379,7 @@ function submitExam() {
     const score = Math.round((correctCount / QUESTIONS_COUNT) * 100);
     const passStatus = score >= 85 ? '<span style="color: #28a745;">PASS / 及格</span>' : '<span style="color: #dc3545;">FAIL / 不及格</span>';
     
+    // 更新成績單
     resultCandidateInfo.innerHTML = `考生：${candidateData.name} <br><span style="font-size: 0.95rem; color: #888;">Email：${candidateData.email} | 日期：${candidateData.date}</span>`;
     scoreDisplay.innerHTML = `${score} 分<br>${passStatus}`;
     
@@ -371,6 +388,9 @@ function submitExam() {
     
     resultScreen.scrollIntoView({ behavior: 'smooth' });
 
+    // ==========================================
+    // 將成績傳送至 Google Sheets
+    // ==========================================
     const scriptUrl = "https://script.google.com/macros/s/AKfycbzxANs5UGKfIle14PWndxsSnBU1h-Lghuj66cgOjRCjCsJk2AzSmB7l4XDjUsyZRv6V/exec"; 
     
     const payload = {
