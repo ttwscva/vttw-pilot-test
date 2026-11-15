@@ -29,7 +29,7 @@ const QUESTIONS_COUNT = 3; // 測驗題數
 let timerInterval;
 let timeRemaining = EXAM_TIME_SECONDS;
 let currentQuestions = [];
-let candidateData = { name: "", id: "" }; // 儲存考生資料
+let candidateData = { name: "", email: "", date: "" }; // 更新：儲存姓名、信箱、日期
 
 const candidateScreen = document.getElementById('candidate-screen');
 const startScreen = document.getElementById('start-screen');
@@ -41,6 +41,13 @@ const timeDisplay = document.getElementById('time-display');
 const scoreDisplay = document.getElementById('score-display');
 const resultCandidateInfo = document.getElementById('result-candidate-info');
 
+// 網頁載入時，自動將「考試日期」設為今天
+document.addEventListener("DOMContentLoaded", () => {
+    // 取得台北時間的今日日期 (YYYY-MM-DD)
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Taipei' });
+    document.getElementById('candidate-date').value = today;
+});
+
 document.getElementById('confirm-info-btn').addEventListener('click', confirmCandidateInfo);
 document.getElementById('start-btn').addEventListener('click', startExam);
 document.getElementById('submit-btn').addEventListener('click', submitExam);
@@ -48,15 +55,17 @@ document.getElementById('retry-btn').addEventListener('click', resetExam);
 
 function confirmCandidateInfo() {
     const nameInput = document.getElementById('candidate-name').value.trim();
-    const idInput = document.getElementById('candidate-id').value.trim();
+    const emailInput = document.getElementById('candidate-email').value.trim();
+    const dateInput = document.getElementById('candidate-date').value;
     
-    if (nameInput === "" || idInput === "") {
-        alert("請輸入考生姓名與證號！");
+    if (nameInput === "" || emailInput === "" || dateInput === "") {
+        alert("請完整輸入姓名、電子郵件與考試日期！");
         return;
     }
     
     candidateData.name = nameInput;
-    candidateData.id = idInput;
+    candidateData.email = emailInput;
+    candidateData.date = dateInput;
     
     candidateScreen.classList.add('hidden');
     startScreen.classList.remove('hidden');
@@ -171,7 +180,8 @@ function submitExam() {
     const score = Math.round((correctCount / QUESTIONS_COUNT) * 100);
     const passStatus = score >= 85 ? '<span style="color: #28a745;">PASS / 及格</span>' : '<span style="color: #dc3545;">FAIL / 不及格</span>';
     
-    resultCandidateInfo.innerHTML = `考生：${candidateData.name} (證號：${candidateData.id})`;
+    // 更新成績單上顯示的資料
+    resultCandidateInfo.innerHTML = `考生：${candidateData.name} <br><span style="font-size: 0.95rem; color: #888;">Email：${candidateData.email} | 日期：${candidateData.date}</span>`;
     scoreDisplay.innerHTML = `${score} 分<br>${passStatus}`;
     
     document.getElementById('submit-btn').classList.add('hidden');
@@ -186,7 +196,7 @@ function submitExam() {
     
     const payload = {
         name: candidateData.name,
-        id: candidateData.id,
+        id: candidateData.email, // 這裡將 Email 代入原本的 id 參數傳送
         score: score,
         status: score >= 85 ? "PASS / 及格" : "FAIL / 不及格"
     };
@@ -197,13 +207,8 @@ function submitExam() {
         body: JSON.stringify(payload)
     })
     .then(response => response.json())
-    .then(data => {
-        console.log("成績已成功上傳至 Google Sheets", data);
-    })
-    .catch(error => {
-        console.error("成績上傳失敗:", error);
-    });
-    // ==========================================
+    .then(data => console.log("成績已成功上傳至 Google Sheets", data))
+    .catch(error => console.error("成績上傳失敗:", error));
 }
 
 function resetExam() {
@@ -213,8 +218,8 @@ function resetExam() {
     candidateScreen.classList.remove('hidden'); 
     
     document.getElementById('candidate-name').value = '';
-    document.getElementById('candidate-id').value = '';
-    document.getElementById('candidate-dob').value = '';
+    document.getElementById('candidate-email').value = '';
+    // 日期保留不清除
     
     document.getElementById('submit-btn').classList.remove('hidden');
     window.scrollTo(0, 0);
