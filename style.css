@@ -1,5 +1,5 @@
 /* ==========================================
-   vTTW 飛行員筆試系統 - 樣式表 (浮水印修正版)
+   vTTW 飛行員筆試系統 - 樣式表 (背景 LOGO 加深版)
    ========================================== */
 
 * {
@@ -20,7 +20,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 背景浮水印：已對應您正確的檔名 Virtual_Tigerair_Taiwan_LOGO_cht_02.png */
+/* 背景浮水印：已將透明度從 0.05 提升至 0.2，讓圖案更清楚 */
 .watermark {
     position: fixed;
     top: 50%;
@@ -33,7 +33,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.05; /* 5% 的淡化透明度 */
+    opacity: 0.2; 
     z-index: 0;
     pointer-events: none;
 }
