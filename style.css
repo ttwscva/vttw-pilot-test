@@ -1,5 +1,5 @@
 /* ==========================================
-   vTTW 飛行員筆試系統 - 樣式表 (手機防整頁滾動完美版)
+   vTTW 飛行員筆試系統 - 樣式表 (手機結算與滾動完美版)
    ========================================== */
 
 * {
@@ -12,12 +12,12 @@
 body {
     background-color: #f8f9fa;
     color: #333;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; /* 強制鎖定整頁，絕不出現外層捲動條 */
+    overflow-x: hidden;
 }
 
 /* 背景浮水印 */
@@ -42,26 +42,21 @@ body {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 750px;
-    padding: 10px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    max-width: 800px;
+    padding: 15px;
+    margin: 0 auto;
 }
 
 header {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
 }
 
-/* 標頭排版：左側放大老虎頭 Logo，右側兩行文字，完美垂直置中 */
+/* 標頭排版：左側老虎頭 Logo，右側兩行文字，完美垂直置中 */
 header h1 {
     font-size: clamp(1rem, 3.8vw, 1.5rem);
     color: #d97706;
@@ -92,41 +87,37 @@ header h1 {
 }
 
 #timer {
-    margin-top: 4px;
-    font-size: 0.95rem;
+    margin-top: 6px;
+    font-size: 1rem;
     font-weight: bold;
     color: #dc3545;
 }
 
 main {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    min-height: 0;
 }
 
+/* 登入頁與規則頁：限制高度並可在區塊內滾動 */
 #candidate-screen, #start-screen {
     width: 100%;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto; /* 內容過長時允許在區塊內捲動，不影響外部畫面 */
+    max-height: 75vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
+    margin: 0 auto;
 }
 
 .info-box {
     background: #ffffff;
-    padding: 18px 16px;
+    padding: 20px 16px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
     max-width: 600px;
-    margin-bottom: 12px;
-    line-height: 1.5;
-    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 0.95rem;
     border-top: 4px solid #f59e0b;
 }
 
@@ -135,8 +126,8 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 6px 8px;
+    margin-bottom: 12px;
+    padding: 8px 10px;
     border-radius: 6px;
     width: 100%;
 }
@@ -150,7 +141,7 @@ main {
     flex-shrink: 0;
     font-weight: bold;
     color: #444;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     white-space: nowrap;
     text-align: left;
 }
@@ -158,10 +149,10 @@ main {
 .candidate-form input {
     flex: 1;
     min-width: 0;
-    padding: 9px 10px;
+    padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     outline: none;
     transition: border-color 0.2s;
 }
@@ -175,7 +166,7 @@ main {
     display: block;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 15px auto;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: white;
     border: none;
@@ -185,7 +176,6 @@ main {
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
-    flex-shrink: 0;
     transition: transform 0.1s, opacity 0.2s;
 }
 
@@ -198,10 +188,8 @@ main {
     transform: translateY(1px);
 }
 
+/* 測驗題目卡片區塊 */
 #quiz-screen {
-    max-height: 80vh;
-    overflow-y: auto;
-    padding-right: 5px;
     width: 100%;
 }
 
@@ -258,6 +246,14 @@ main {
     color: #444;
 }
 
+/* 結果結算畫面：恢復正常的上下置中排版，結算後會完整顯示在下方 */
+#result-screen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
 .result-box {
     background: #ffffff;
     padding: 30px 20px;
@@ -265,9 +261,9 @@ main {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
     max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     border-top: 4px solid #f59e0b;
-    width: 100%;
 }
 
 .result-box h2 {
