@@ -204,8 +204,8 @@ const questionBank = [
     { id: 200, type: "choice", question: "駕駛艙窗戶旁的「逃生繩 (Escape Rope)」作用？", options: ["綁人", "緊急時供機師從高聳窗戶垂降至地面", "晾衣", "裝飾"], answer: 1, explanation: "客機機首離地極高，逃生繩確保艙門卡死時仍可撤離。" }
 ];
 
-const EXAM_TIME_SECONDS = 1800; // 30分鐘
-const QUESTIONS_COUNT = 30; // 系統將從這 200 題中隨機抽 30 題給考生作答
+const EXAM_TIME_SECONDS = 18000; // 30分鐘
+const QUESTIONS_COUNT = 200; // 系統將從這 200 題中隨機抽 30 題給考生作答
 
 let timerInterval;
 let timeRemaining = EXAM_TIME_SECONDS;
