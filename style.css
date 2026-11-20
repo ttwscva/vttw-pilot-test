@@ -48,12 +48,15 @@ body {
 }
 
 header {
+    position: relative;
     text-align: center;
-    margin-bottom: 20px;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 /* 標頭排版：左側老虎頭 Logo，右側兩行文字，完美垂直置中 */
@@ -93,7 +96,21 @@ header h1 {
     color: #dc3545;
 }
 
+/* 右斜縮小的人物裝飾圖 */
+.header-mascot {
+    position: absolute;
+    right: 15px;
+    bottom: -26px; /* 貼齊下方表單的橘色頂邊 */
+    width: 135px;  /* 人物大小，可自行微調 */
+    height: auto;
+    transform: rotate(12deg); /* 向右傾斜角度 */
+    transform-origin: bottom center;
+    pointer-events: none; /* 避免擋住點擊 */
+}
+
 main {
+    position: relative;
+    z-index: 2;
     width: 100%;
 }
 
@@ -283,10 +300,6 @@ main {
     display: none !important;
 }
 
-.hidden {
-    display: none !important;
-}
-
 /* 題目內容區：選項與圖片左右並排 */
 .question-body.has-image {
     display: flex;
@@ -319,8 +332,14 @@ main {
     display: block;
 }
 
-/* 手機直立畫面自動改為上下排列，避免選項過窄 */
+/* 手機直立畫面自適應調整 */
 @media (max-width: 600px) {
+    .header-mascot {
+        width: 85px;
+        right: 0;
+        bottom: -22px;
+    }
+
     .question-body.has-image {
         flex-direction: column;
         align-items: stretch;
