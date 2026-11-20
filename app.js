@@ -289,19 +289,9 @@ function renderQuestions() {
         title.textContent = `${index + 1}. ${q.question}`;
         card.appendChild(title);
         
-        // 如果題目有設定圖片，則插入圖片元素
-        if (q.image) {
-            const img = document.createElement('img');
-            img.src = q.image;
-            img.alt = q.question;
-            img.className = 'question-image';
-            img.style.maxWidth = '100%';
-            img.style.maxHeight = '350px';
-            img.style.display = 'block';
-            img.style.margin = '12px auto';
-            img.style.borderRadius = '8px';
-            card.appendChild(img);
-        }
+        // 新增外層容器，讓選項與圖片可以左右並排
+        const bodyDiv = document.createElement('div');
+        bodyDiv.className = q.image ? 'question-body has-image' : 'question-body';
         
         const optionsDiv = document.createElement('div');
         optionsDiv.className = 'options';
@@ -316,7 +306,23 @@ function renderQuestions() {
             label.appendChild(document.createTextNode(opt));
             optionsDiv.appendChild(label);
         });
-        card.appendChild(optionsDiv);
+        bodyDiv.appendChild(optionsDiv);
+        
+        // 如果題目有圖片，放在選項右側
+        if (q.image) {
+            const imgWrapper = document.createElement('div');
+            imgWrapper.className = 'question-image-wrapper';
+            
+            const img = document.createElement('img');
+            img.src = q.image;
+            img.alt = q.question;
+            img.className = 'question-image';
+            
+            imgWrapper.appendChild(img);
+            bodyDiv.appendChild(imgWrapper);
+        }
+        
+        card.appendChild(bodyDiv);
         
         const explanationDiv = document.createElement('div');
         explanationDiv.className = 'explanation hidden';
