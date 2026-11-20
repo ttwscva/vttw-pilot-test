@@ -86,7 +86,7 @@ const questionBank = [
     { id: 82, type: "choice", question: "紅底白字指示牌代表？", options: ["資訊", "強制指示牌，未獲許可嚴禁越過", "目的地", "位置"], answer: 1, explanation: "強制指示，如跑道等待位置。" },
     { id: 83, type: "choice", question: "跑道末端黃色Ｖ字型代表？", options: ["直升機區", "防吹翼/緩衝區，嚴禁進入滑行", "貴賓", "起點"], answer: 1, explanation: "結構不足以支撐滑行，嚴禁進入。" },
     { id: 84, type: "choice", question: "放下全襟翼主要產生？", options: ["推力", "阻力大於升力，利於陡降減速", "升力大於阻力", "配平"], answer: 1, explanation: "全襟翼產生龐大阻力利於降落減速。" },
-    { id: 85, type: "choice", question: "A350 外觀特徵？", options: ["單走道", "墨鏡擋風玻璃與彎刀翼端帆", "四引擎", "V型尾"], answer: 1, explanation: "獨特墨鏡邊框與平滑翼尖是 A350 特徵。" },
+    { id: 85, type: "choice", question: "A350 外觀特徵？", image: "assets/A350外觀特徵.png", options: ["單走道", "墨鏡擋風玻璃與彎刀翼端帆", "四引擎", "V型尾"], answer: 1, explanation: "獨特墨鏡邊框與平滑翼尖是 A350 特徵。" },
     { id: 86, type: "choice", question: "B737 機腹特徵？", options: ["主輪外側直接裸露", "三機腹", "履帶", "透明"], answer: 0, explanation: "減重設計，收起後輪胎外側直接貼齊機腹。" },
     { id: 87, type: "choice", question: "後置引擎客機對客艙影響？", options: ["機頭吵", "前半段極度安靜，空氣動力乾淨", "劇震", "無貨物"], answer: 1, explanation: "引擎噪音集中機尾，前中段極度安靜。" },
     { id: 88, type: "choice", question: "單引擎飛機起飛大推力會向左偏，需踩？", options: ["左腳", "右腳方向舵", "雙腳", "不踩"], answer: 1, explanation: "受螺旋槳滑流影響機頭偏左，需踩右舵。" },
@@ -288,6 +288,20 @@ function renderQuestions() {
         title.className = 'question-title';
         title.textContent = `${index + 1}. ${q.question}`;
         card.appendChild(title);
+        
+        // 如果題目有設定圖片，則插入圖片元素
+        if (q.image) {
+            const img = document.createElement('img');
+            img.src = q.image;
+            img.alt = q.question;
+            img.className = 'question-image';
+            img.style.maxWidth = '100%';
+            img.style.maxHeight = '350px';
+            img.style.display = 'block';
+            img.style.margin = '12px auto';
+            img.style.borderRadius = '8px';
+            card.appendChild(img);
+        }
         
         const optionsDiv = document.createElement('div');
         optionsDiv.className = 'options';
