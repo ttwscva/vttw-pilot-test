@@ -1,7 +1,5 @@
 // ==========================================
-// vTTW 飛行員入學筆試完整題庫 (共 200 題)
-// 題庫第 1 - 100 題 (已依 ATMP 第19版中英文術語嚴格校訂)
-// 題庫第 1 - 5 題 (已含 ATMP 嚴格出處規範範例)
+// vTTW 飛行員入學筆試題庫 (已依 ATMP 第19版中英文術語與出處校訂)
 // ==========================================
 const questionBank = [
     { 
@@ -18,7 +16,7 @@ const questionBank = [
         question: "升降速率表 (Vertical Speed Indicator, VSI) 的主要功能是什麼？", 
         options: ["顯示絕對高度 (Absolute Altitude)", "顯示爬升或下降的垂直速率", "顯示真空速 (True Airspeed, TAS)", "顯示發動機轉速 (RPM)"], 
         answer: 1, 
-        explanation: "升降速率表 (VSI) 透過測量靜壓變化率，以呎/每分鐘 (FPM) 顯示航空器的爬升或下降速率。[出處：ATMP 第 1.3.7 節高度定義與皮托管-靜壓系統原理]" 
+        explanation: "升降速率表 (VSI) 透過測量靜壓變化率，以呎/每分鐘 (FPM) 顯示航空器的爬升或下降速率。[出處：ATMP 第 1-3-1 節高度定義與皮托管-靜壓系統原理]" 
     },
     { 
         id: 3, 
@@ -26,7 +24,7 @@ const questionBank = [
         question: "傳統六大飛航儀表中，哪三個是利用「皮托管-靜壓系統 (Pitot-Static System)」運作的？", 
         options: ["空速表、高度表、升降速率表", "姿態儀、航向指示器、轉彎協調表", "空速表、姿態儀、高度表", "升降速率表、航向指示器、轉彎協調表"], 
         answer: 0, 
-        explanation: "空速表 (ASI) 比較動壓與靜壓；高度表 (Altimeter) 與升降速率表 (VSI) 則純粹依賴靜壓系統運作。[出處：ATMP 第 1.2.7 節縮語表與儀表氣壓系統原理]" 
+        explanation: "空速表 (ASI) 比較動壓與靜壓；高度表 (Altimeter) 與升降速率表 (VSI) 則純粹依賴靜壓系統運作。[出處：ATMP 第 1-2-7 節縮語表與儀表氣壓系統原理]" 
     },
     { 
         id: 4, 
@@ -42,11 +40,13 @@ const questionBank = [
         question: "傳統航向指示器 (Heading Indicator, HI) 必須定時參照何種儀表來手動校準？", 
         options: ["姿態儀 (Attitude Indicator)", "磁羅盤 (Magnetic Compass)", "轉彎協調表 (Turn Coordinator)", "全球定位系統 (GPS)"], 
         answer: 1, 
-        explanation: "傳統航向指示器 (HI) 的陀螺儀會產生進動誤差，需定時對照磁羅盤 (Magnetic Compass) 手動校準。[出處：ATMP 第 1.2.1 節航跡與磁方位定義]"
+        explanation: "傳統航向指示器 (HI) 的陀螺儀會產生進動誤差，需定時對照磁羅盤 (Magnetic Compass) 手動校準。[出處：ATMP 第 1-2-1 節航跡與磁方位定義]" 
+    }
 ];
 
-const EXAM_TIME_SECONDS = 18000; // 30分鐘
-const QUESTIONS_COUNT = 200; // 系統將從這 200 題中隨機抽 30 題給考生作答
+const EXAM_TIME_SECONDS = 1800; // 30分鐘 (1800秒)
+// 自動依據題庫數量抽題（最多抽 30 題，題庫不足 30 題時則全抽，避免算分錯誤）
+const QUESTIONS_COUNT = Math.min(30, questionBank.length);
 
 let timerInterval;
 let timeRemaining = EXAM_TIME_SECONDS;
@@ -63,14 +63,21 @@ const timeDisplay = document.getElementById('time-display');
 const scoreDisplay = document.getElementById('score-display');
 const resultCandidateInfo = document.getElementById('result-candidate-info');
 
-// 網頁載入時自動帶入日期
-document.addEventListener("DOMContentLoaded", () => {
+// 設定今日日期函式（台北時區）
+function setTodayDate() {
     const dateInput = document.getElementById('candidate-date');
     if (dateInput) {
         const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Taipei' });
         dateInput.value = today;
     }
-});
+}
+
+// 網頁載入時自動帶入日期（雙重保障：無論 DOMContentLoaded 是否已觸發皆可執行）
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setTodayDate);
+} else {
+    setTodayDate();
+}
 
 document.getElementById('confirm-info-btn').addEventListener('click', confirmCandidateInfo);
 document.getElementById('start-btn').addEventListener('click', startExam);
@@ -130,7 +137,6 @@ function renderQuestions() {
         title.textContent = `${index + 1}. ${q.question}`;
         card.appendChild(title);
         
-        // 新增外層容器，讓選項與圖片可以左右並排
         const bodyDiv = document.createElement('div');
         bodyDiv.className = q.image ? 'question-body has-image' : 'question-body';
         
@@ -149,7 +155,6 @@ function renderQuestions() {
         });
         bodyDiv.appendChild(optionsDiv);
         
-        // 如果題目有圖片，放在選項右側
         if (q.image) {
             const imgWrapper = document.createElement('div');
             imgWrapper.className = 'question-image-wrapper';
@@ -208,39 +213,30 @@ function submitExam() {
         const explanationDiv = document.getElementById(`exp-${index}`);
         const userAnswer = selected ? parseInt(selected.value) : -1;
         
-        // 1. 標記正確答案 (綠色背景)
         optionsLabels[q.answer].classList.add('correct');
-        // 在正確選項後方加上明確的文字提示
         const correctBadge = document.createElement('span');
         correctBadge.innerHTML = ' <strong style="color: #155724; font-size: 0.95rem;">(✅ 正確解答)</strong>';
         optionsLabels[q.answer].appendChild(correctBadge);
         
-        // 2. 判斷考生作答狀況
         if (userAnswer === q.answer) {
-            // 答對
             correctCount++;
         } else if (userAnswer !== -1) {
-            // 答錯：標記錯誤答案 (紅色背景)
             optionsLabels[userAnswer].classList.add('wrong');
-            // 在錯誤選項後方加上明確的文字提示
             const wrongBadge = document.createElement('span');
             wrongBadge.innerHTML = ' <strong style="color: #721c24; font-size: 0.95rem;">(❌ 您的作答)</strong>';
             optionsLabels[userAnswer].appendChild(wrongBadge);
         } else {
-            // 未作答提示
             explanationDiv.innerHTML = `<span style="color: #dc3545; font-weight: bold;">⚠️ 您此題未作答</span><br><br>` + explanationDiv.innerHTML;
         }
         
-        // 顯示解析並鎖定選項
         explanationDiv.classList.remove('hidden');
         const allRadios = document.querySelectorAll(`input[name="q-${index}"]`);
         allRadios.forEach(radio => radio.disabled = true);
     });
     
-    const score = Math.round((correctCount / QUESTIONS_COUNT) * 100);
+    const score = Math.round((correctCount / currentQuestions.length) * 100);
     const passStatus = score >= 85 ? '<span style="color: #28a745;">PASS / 及格</span>' : '<span style="color: #dc3545;">FAIL / 不及格</span>';
     
-    // 更新成績單
     resultCandidateInfo.innerHTML = `考生：${candidateData.name} <br><span style="font-size: 0.95rem; color: #888;">Email：${candidateData.email} | 日期：${candidateData.date}</span>`;
     scoreDisplay.innerHTML = `${score} 分<br>${passStatus}`;
     
@@ -249,9 +245,6 @@ function submitExam() {
     
     resultScreen.scrollIntoView({ behavior: 'smooth' });
 
-    // ==========================================
-    // 將成績傳送至 Google Sheets
-    // ==========================================
     const scriptUrl = "https://script.google.com/macros/s/AKfycbzxANs5UGKfIle14PWndxsSnBU1h-Lghuj66cgOjRCjCsJk2AzSmB7l4XDjUsyZRv6V/exec"; 
     
     const payload = {
@@ -279,6 +272,7 @@ function resetExam() {
     
     document.getElementById('candidate-name').value = '';
     document.getElementById('candidate-email').value = '';
+    setTodayDate();
     
     document.getElementById('submit-btn').classList.remove('hidden');
     window.scrollTo(0, 0);
