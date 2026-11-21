@@ -99,8 +99,8 @@ header h1 {
 /* 右斜縮小的人物裝飾圖（已向下微調位置） */
 .header-mascot {
     position: absolute;
-    right: 15px;
-    bottom: -26px; /* 往下移，避免懸空壓在白框上方 */
+    right: 18px;
+    bottom: -28px; /* 往下移，避免懸空壓在白框上方 */
     width: 135px;  
     height: auto;
     transform: rotate(12deg); 
