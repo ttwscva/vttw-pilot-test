@@ -2228,6 +2228,7 @@ const questionBank = [
         "id": 171,
         "type": "choice",
         "question": "依 ATMP 第 3-2-1 節表 3-2-1，當無線電失效時，機場管制塔臺對「飛航中之航空器」發出「連續紅色閃光 (Flashing Red)」飛航管制燈光信號代表什麼意義？",
+        "image": "assets/Flashing Red.png",
         "options": [
             "許可起飛",
             "許可降落",
