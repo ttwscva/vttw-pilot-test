@@ -2321,6 +2321,7 @@ const questionBank = [
         "id": 179,
         "type": "choice",
         "question": "依 ATMP 第 2-1-28 節，當航情警告及防撞系統 (TCAS) 發出「避撞諮詢 (Resolution Advisory, RA)」時，駕駛員應如何處置？",
+        "image": "assets/Tcas_RA.jpg",
         "options": [
             "先向航管單位請示同意後再動作",
             "立即且精準地遵循 TCAS 避撞諮詢指示爬升或下降，並通報航管",
@@ -2440,7 +2441,7 @@ const questionBank = [
         "question": "民航客機停靠停機坪並關閉主發動機後，機上電力與空調主要依靠何種設備供應？",
         "options": [
             "僅靠駕駛艙備用電瓶",
-            "機尾之輔助動力單元 (APU) 或地面電源車 (GPU) 與地面空調車",
+            "機尾之輔助動力單元或地面電源車與地面空調車",
             "人力手搖發電機",
             "機翼太陽能板"
         ],
