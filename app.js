@@ -2240,6 +2240,7 @@ const questionBank = [
         "id": 172,
         "type": "choice",
         "question": "依 ATMP 第 3-2-1 節表 3-2-1，機場管制塔臺對「飛航中之航空器」發出「固定紅光 (Steady Red)」燈光信號代表什麼？",
+        "image": "assets/Steady Red.png",
         "options": [
             "立即緊急迫降",
             "避讓其他航空器並繼續盤旋",
