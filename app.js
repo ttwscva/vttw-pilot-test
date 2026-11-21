@@ -1256,6 +1256,7 @@ const questionBank = [
         "id": 97,
         "type": "choice",
         "question": "解除急性疲勞 (Acute Fatigue) 唯一真正有效的生理方法為何？",
+        "image": "assets/Acute Fatigue.jpg",
         "options": [
             "大量飲用咖啡",
             "進行劇烈運動",
