@@ -968,6 +968,7 @@ const questionBank = [
         "id": 75,
         "type": "choice",
         "question": "在機場航線 (Aerodrome Traffic Circuit) 飛航中，最容易因轉彎過急發生「失速螺旋 (Stall/Spin)」的危險階段為？",
+        "image": "assets/Stall_Spin.png",
         "options": [
             "起飛滾行",
             "二邊轉三邊",
