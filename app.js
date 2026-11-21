@@ -1128,6 +1128,7 @@ const questionBank = [
         "id": 87,
         "type": "choice",
         "question": "發動機後置於機尾兩側的客機（如 MD-80、CRJ 系列），對客艙與氣動的主要影響為何？",
+        "image": "assets/md8x_Engine.jpg",
         "options": [
             "機頭客艙最吵雜",
             "客艙前半段極為安靜，且機翼氣動構型乾淨",
