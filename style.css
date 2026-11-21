@@ -96,16 +96,16 @@ header h1 {
     color: #dc3545;
 }
 
-/* 右斜縮小的人物裝飾圖 */
+/* 右斜縮小的人物裝飾圖（已向下微調位置） */
 .header-mascot {
     position: absolute;
     right: 15px;
-    bottom: -28px; /* 貼齊下方表單的橘色頂邊 */
-    width: 135px;  /* 人物大小，可自行微調 */
+    bottom: -15px; /* 往下移，避免懸空壓在白框上方 */
+    width: 135px;  
     height: auto;
-    transform: rotate(12deg); /* 向右傾斜角度 */
+    transform: rotate(12deg); 
     transform-origin: bottom center;
-    pointer-events: none; /* 避免擋住點擊 */
+    pointer-events: none; 
 }
 
 main {
@@ -131,14 +131,13 @@ main {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 680px; /* 稍微加寬，讓純文字說明更舒適 */
+    max-width: 680px; 
     margin-bottom: 15px;
-    line-height: 1.75; /* 增加行高，提升易讀性 */
+    line-height: 1.75; 
     font-size: 0.95rem;
     border-top: 4px solid #f59e0b;
 }
 
-/* 針對開始畫面資訊框進一步調寬與內距優化 */
 #start-screen .info-box {
     max-width: 680px;
     padding: 28px 30px;
@@ -149,7 +148,7 @@ main {
     margin-bottom: 10px;
 }
 
-/* 考生姓名與電子郵件欄位：維持在同一行 */
+/* 考生姓名與電子郵件欄位 */
 .candidate-form .form-row {
     display: flex;
     flex-direction: row;
@@ -193,7 +192,7 @@ main {
 .tiger-btn {
     display: block;
     width: 100%;
-    max-width: 680px; /* 與資訊框寬度對齊 */
+    max-width: 680px; 
     margin: 0 auto 15px auto;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: white;
@@ -274,7 +273,7 @@ main {
     color: #444;
 }
 
-/* 結果結算畫面：恢復正常的上下置中排版，結算後會完整顯示在下方 */
+/* 結果結算畫面 */
 #result-screen {
     width: 100%;
     display: flex;
@@ -348,7 +347,7 @@ main {
     .header-mascot {
         width: 85px;
         right: 0;
-        bottom: -22px;
+        bottom: -10px;
     }
 
     .question-body.has-image {
