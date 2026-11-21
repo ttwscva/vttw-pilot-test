@@ -2187,6 +2187,7 @@ const questionBank = [
         "id": 168,
         "type": "choice",
         "question": "依 ATMP 第 5-2-3 節，次級雷達詢答機設定緊急電碼「Squawk 7700」代表什麼？",
+        "image": "assets/7700.png",
         "options": [
             "無線電通信失效",
             "一般緊急狀態",
