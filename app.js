@@ -2463,6 +2463,7 @@ const questionBank = [
         "id": 190,
         "type": "choice",
         "question": "俗稱「黑盒子」的飛航資料紀錄器 (FDR) 與座艙語音紀錄器 (CVR)，實際外觀顏色為何？",
+        "image: "assets/FDR、CVR.jpg"
         "options": [
             "純黑色",
             "高辨識度之亮橘色 (International Orange) 並貼有反光條",
