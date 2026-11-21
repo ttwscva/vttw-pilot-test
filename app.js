@@ -528,7 +528,7 @@ const questionBank = [
         "options": [
             "高於下滑道",
             "低於下滑道",
-            "位於正確下滑道 (On Glide Path)",
+            "位於正確下滑道",
             "偏離跑道中心線"
         ],
         "answer": 2,
@@ -697,7 +697,7 @@ const questionBank = [
         "options": [
             "龍捲風",
             "高空晴空亂流",
-            "起霧 (Fog) 或低雲",
+            "起霧或低雲",
             "冰雹"
         ],
         "answer": 2,
@@ -722,7 +722,7 @@ const questionBank = [
         "question": "傳統空速表 (Airspeed Indicator) 上的綠色圓弧 (Green Arc) 代表什麼？",
         "options": [
             "襟翼操作範圍",
-            "正常操作速度範圍 (Normal Operating Range)",
+            "正常操作速度範圍",
             "警戒速度範圍",
             "發動機轉速範圍"
         ],
@@ -761,7 +761,7 @@ const questionBank = [
         "question": "轉彎協調表 (Turn Coordinator) 下方的黑球（側滑儀 Inclinometer）主要作用為何？",
         "options": [
             "指示俯仰角",
-            "顯示轉彎時之側滑 (Slip) 或外滑 (Skid) 協調狀態",
+            "顯示轉彎時之側滑或外滑協調狀態",
             "顯示剩餘燃油",
             "顯示真空系統壓力"
         ],
@@ -904,7 +904,7 @@ const questionBank = [
         "question": "磁方位角為 090 度的跑道，依國際民航與 ATMP 規範應如何標示與讀出？",
         "options": [
             "9",
-            "09（洞九跑道）",
+            "09",
             "N9",
             "090"
         ],
@@ -917,7 +917,7 @@ const questionBank = [
         "question": "於無塔臺機場以目視飛航規則 (VFR) 加入機場航線 (Aerodrome Traffic Circuit) 時，最標準建議的切入方式為？",
         "options": [
             "90 度切入四邊",
-            "以 45 度角切入三邊 (Downwind) 中段",
+            "以 45 度角切入三邊中段",
             "直接逆向進場",
             "自跑道正上方垂直俯衝切入"
         ],
@@ -944,7 +944,7 @@ const questionBank = [
         "options": [
             "空速較快者",
             "較晚加入航線者",
-            "高度較低且已在五邊最後進場 (Final) 者",
+            "高度較低且已在五邊最後進場者",
             "大型客機一律無條件優先"
         ],
         "answer": 2,
@@ -957,7 +957,7 @@ const questionBank = [
         "options": [
             "全停煞停後再滑行起飛",
             "落地觸地滾行後不完全停止，隨即加速再次起飛",
-            "不觸地直接低空通過 (Low Approach)",
+            "不觸地直接低空通過",
             "起飛後立即放棄起飛"
         ],
         "answer": 1,
@@ -995,7 +995,7 @@ const questionBank = [
         "question": "觀察到機場風向袋 (Windsock) 完全垂直朝下垂落，代表什麼狀況？",
         "options": [
             "強烈陣風",
-            "靜風 (Calm) 或風速極低",
+            "靜風或風速極低",
             "正側風",
             "強烈下沉氣流"
         ],
@@ -1047,7 +1047,7 @@ const questionBank = [
         "question": "機場場面內「黑底黃字（外框黃色）」與「黃底黑字」指示牌之區別中，「黃底黑字」附箭頭指示牌代表什麼？",
         "options": [
             "位置指示牌（目前所在滑行道）",
-            "方向 / 目的地指示牌 (Direction / Destination Sign)",
+            "方向 / 目的地指示牌",
             "跑道強制停止牌",
             "跑道剩餘距離牌"
         ],
@@ -1060,7 +1060,7 @@ const questionBank = [
         "question": "機場場面內「紅底白字」指示牌代表什麼含義？",
         "options": [
             "一般資訊指示牌",
-            "強制指示牌 (Mandatory Instruction Sign)，未獲航管許可嚴禁越過",
+            "強制指示牌，未獲航管許可嚴禁越過",
             "目的地指示牌",
             "停機坪位置指示牌"
         ],
@@ -1073,7 +1073,7 @@ const questionBank = [
         "question": "跑道頭或跑道末端外側繪有黃色「V 字型（人字紋 Chevron）」標線之區域稱為？",
         "options": [
             "直昇機起降區",
-            "緩衝區 (Stopway) / 防吹坪 (Blast Pad)，禁止正常滑行起降",
+            "緩衝區 / 防吹坪，禁止正常滑行起降",
             "貴賓停機區",
             "起飛滾行起點"
         ],
@@ -1100,7 +1100,7 @@ const questionBank = [
         "image": "assets/A350外觀特徵.png",
         "options": [
             "單走道窄體機身",
-            "黑色「墨鏡」駕駛艙窗框與彎刀型翼端帆 (Sharklets)",
+            "黑色「墨鏡」駕駛艙窗框與彎刀型翼端帆",
             "四發動機配置",
             "T 型尾翼"
         ],
@@ -1139,7 +1139,7 @@ const questionBank = [
         "question": "傳統順時針旋轉（由駕駛艙向前看）之單發動機螺旋槳飛機於大推力起飛滾行時，機頭會自然向左偏航，駕駛員應如何修正？",
         "options": [
             "踩左腳方向舵",
-            "踩右腳方向舵 (Right Rudder)",
+            "踩右腳方向舵",
             "雙腳同時踩煞車",
             "不需修正"
         ],
@@ -1152,7 +1152,7 @@ const questionBank = [
         "question": "現代客機機翼末端加裝翼端帆 (Winglet / Sharklet) 的主要功能為何？",
         "options": [
             "增加機翼結構重量",
-            "阻隔上下翼面壓差氣流，減少翼尖渦流與誘導阻力 (Induced Drag)",
+            "阻隔上下翼面壓差氣流，減少翼尖渦流與誘導阻力",
             "純粹外觀裝飾",
             "協助突破音速"
         ],
@@ -1191,7 +1191,7 @@ const questionBank = [
         "question": "快速滑行道 (Rapid Exit Taxiway) 中心線引導燈在接近跑道區域的顏色特徵為何？",
         "options": [
             "全紅色",
-            "綠、黃交替 (Alternating Green and Yellow)",
+            "綠、黃交替",
             "全藍色",
             "白、綠交替"
         ],
@@ -1282,7 +1282,7 @@ const questionBank = [
         "question": "晴空亂流 (Clear Air Turbulence, CAT) 最常發生於哪種大氣環境？",
         "options": [
             "低空熱帶氣旋中心",
-            "高空噴射氣流 (Jet Stream) 邊緣之強烈風切帶",
+            "高空噴射氣流邊緣之強烈風切帶",
             "日間沿海海風帶",
             "高氣壓核心無風區"
         ],
@@ -1372,7 +1372,7 @@ const questionBank = [
         "type": "choice",
         "question": "在北半球，當航空器保持向東（航向 090°）平飛並「加速」時，傳統磁羅盤 (Magnetic Compass) 會產生何種誤差？",
         "options": [
-            "短暫指示偏北 (ANDS)",
+            "短暫指示偏北",
             "短暫指示偏南",
             "持續原地旋轉",
             "完全不受影響"
@@ -1385,7 +1385,7 @@ const questionBank = [
         "type": "choice",
         "question": "現代玻璃座艙航空器配備之「姿態航向參考系統 (AHRS)」主要功能為何？",
         "options": [
-            "取代飛航管理系統 (FMS)",
+            "取代飛航管理系統",
             "取代傳統真空陀螺儀，以固態感測器提供精準姿態與航向資訊",
             "僅測量大氣壓力",
             "提供空中防撞警告"
@@ -1412,7 +1412,7 @@ const questionBank = [
         "question": "當現代客機的主飛航顯示器 (PFD) 全部失效時，駕駛員應立即依賴哪一項裝備維持基本儀表飛航？",
         "options": [
             "個人行動裝置",
-            "獨立供電之備用儀表 (Standby Instruments / ISIS)",
+            "獨立供電之備用儀表",
             "自動駕駛儀",
             "氣象雷達顯示器"
         ],
@@ -1437,7 +1437,7 @@ const questionBank = [
         "type": "choice",
         "question": "航空器於落地拉平階段進入「地面效應 (Ground Effect)」高度（約一個翼展高度內）時，會產生何種氣動變化？",
         "options": [
-            "誘導阻力減少，產生明顯浮飄 (Floating) 趨勢",
+            "誘導阻力減少，產生明顯浮飄趨勢",
             "機翼升力完全消失",
             "飛機無法起飛",
             "發動機自動熄火"
@@ -1451,7 +1451,7 @@ const questionBank = [
         "question": "強側風條件下進行起飛滾行時，駕駛員的副翼（駕駛桿／駕駛盤）應打向哪一側？",
         "options": [
             "打向背風側",
-            "打向迎風側 (Into the wind)",
+            "打向迎風側",
             "全程保持中立置中",
             "向後拉到底"
         ],
@@ -1543,11 +1543,11 @@ const questionBank = [
         "options": [
             "立即收起起落架",
             "先向塔臺無線電呼叫",
-            "增加至重飛推力並建立正爬升姿態（先飛好飛機 Aviate）",
+            "建立爬升姿態與重飛推力",
             "立即放出全襟翼"
         ],
         "answer": 2,
-        "explanation": "重飛首要原則為「Aviate, Navigate, Communicate」，先建立重飛推力與安全爬升姿態，確認正爬升率後再依序收襟翼與起落架。"
+        "explanation": "重飛首要原則為「Aviate（先飛好飛機）」，當機立斷時應優先穩定俯仰姿態、建立正爬升率並伴隨重飛推力，確認安全後再依序收起起落架與通訊。"
     },
     {
         "id": 120,
@@ -1594,7 +1594,7 @@ const questionBank = [
         "question": "若大型機場設有多個風向袋 (Windsock)，進場落地時應優先參考哪一個？",
         "options": [
             "航廈屋頂上的風向袋",
-            "最靠近預定降落跑道頭 (Threshold) 著陸區之風向袋",
+            "最靠近預定降落跑道頭著陸區之風向袋",
             "機場正中央的風向袋",
             "任選一個即可"
         ],
@@ -1646,7 +1646,7 @@ const questionBank = [
         "question": "跑道兩端道面上繪有巨大白色或黃色「X」標線，依《民用機場設計暨運作規範》代表什麼？",
         "options": [
             "緊急迫降指定區",
-            "跑道關閉標線 (Closed Runway Marking)，嚴禁起飛與降落",
+            "跑道關閉標線，嚴禁起飛與降落",
             "直昇機專用起降點",
             "除冰作業區"
         ],
@@ -1698,7 +1698,7 @@ const questionBank = [
         "question": "滑行道中央的單一連續黃色實線稱為？",
         "options": [
             "滑行道邊線",
-            "滑行道中心線標線 (Taxiway Centre Line Marking)",
+            "滑行道中心線標線",
             "跑道等待位置標線",
             "禁止進入標線"
         ],
@@ -1789,7 +1789,7 @@ const questionBank = [
         "question": "噴射客機空速表上的紅白相間「理髮柱 (Barber Pole)」指針代表什麼限制？",
         "options": [
             "最佳省油巡航速度",
-            "最高容許操作速度 / 馬赫數 (Vmo / Mmo)",
+            "最高容許操作速度 / 馬赫數",
             "最大側風限制速度",
             "襟翼全放操作速度"
         ],
@@ -1932,7 +1932,7 @@ const questionBank = [
         "question": "現代客機採用的「線傳飛控系統 (Fly-By-Wire, FBW)」核心設計理念為何？",
         "options": [
             "以鋼纜直接拉動舵面",
-            "駕駛員操作輸入先轉換為電子訊號送交飛控電腦運算，並提供飛航包絡線保護 (Flight Envelope Protection)",
+            "駕駛員操作輸入先轉換為電子訊號送交飛控電腦運算，並提供飛航包絡線保護",
             "完全取消駕駛員操作桿",
             "僅能由地面遙控飛行"
         ],
@@ -2010,7 +2010,7 @@ const questionBank = [
         "question": "機場例行天氣報告 (METAR) 中出現天氣現象代碼「BR」與「FG」分別代表什麼？",
         "options": [
             "小雨與大雪",
-            "薄霧 (Mist，能見度 1,000 至 5,000 公尺) 與濃霧 (Fog，能見度低於 1,000 公尺)",
+            "薄霧與濃霧",
             "冰雹與雷暴",
             "沙塵暴與吹雪"
         ],
@@ -2075,7 +2075,7 @@ const questionBank = [
         "question": "山脈背風面上空出現外觀如飛碟或透鏡狀的「莢狀雲 (Lenticular Clouds)」，代表附近存在何種危險天氣？",
         "options": [
             "即將發生火山爆發",
-            "強烈山岳波 (Mountain Wave) 與劇烈亂流",
+            "強烈山岳波與劇烈亂流",
             "大範圍降雪",
             "高溫熱浪"
         ],
@@ -2089,7 +2089,7 @@ const questionBank = [
         "options": [
             "機場天氣預報",
             "衛星雲圖分析",
-            "駕駛員天氣報告 (Pilot Report)，由飛行員回報實際遭遇之亂流、積冰或風切等天氣情況",
+            "駕駛員天氣報告，由飛行員回報實際遭遇之亂流、積冰或風切等天氣情況",
             "地面雷達回波圖"
         ],
         "answer": 2,
@@ -2127,7 +2127,7 @@ const questionBank = [
         "question": "噴射機在高空飛航時，機身後方拖曳出的白色長條狀雲跡稱為？",
         "options": [
             "自然卷雲",
-            "凝結尾 (Contrails / Condensation Trails)",
+            "凝結尾",
             "高積雲",
             "機翼洩油痕跡"
         ],
@@ -2153,7 +2153,7 @@ const questionBank = [
         "question": "依國際航空無線電通信規範，連續呼叫三次「MAYDAY, MAYDAY, MAYDAY」代表什麼？",
         "options": [
             "一般例行位置報告",
-            "遇險狀態 (Distress)，航空器與乘員遭受嚴重且迫切之危險，需要立即援助",
+            "遇險狀態，航空器與乘員遭受嚴重且迫切之危險，需要立即援助",
             "輕微偏航查詢",
             "班機預計延誤通知"
         ],
@@ -2166,7 +2166,7 @@ const questionBank = [
         "question": "連續呼叫三次「PAN-PAN, PAN-PAN, PAN-PAN」代表何種緊急等級？",
         "options": [
             "準備水上迫降",
-            "緊急狀態 (Urgency)，有涉及航空器或人員安全之急迫情況，但尚未立即危及生命",
+            "緊急狀態，有涉及航空器或人員安全之急迫情況，但尚未立即危及生命",
             "航空器遭非法劫持",
             "目的地天氣良好"
         ],
@@ -2179,7 +2179,7 @@ const questionBank = [
         "question": "依 ATMP 第 5-2-3 節，次級雷達詢答機設定緊急電碼「Squawk 7700」代表什麼？",
         "options": [
             "無線電通信失效",
-            "一般緊急狀態 (Emergency)",
+            "一般緊急狀態",
             "航空器遭劫持",
             "目視飛航規則標準電碼"
         ],
@@ -2192,7 +2192,7 @@ const questionBank = [
         "question": "依 ATMP 第 5-2-4 節，次級雷達詢答機設定電碼「Squawk 7600」代表什麼？",
         "options": [
             "一般緊急狀態",
-            "雙向無線電通信失效 (Radio Communication Failure)",
+            "雙向無線電通信失效",
             "航空器遭非法干擾劫持",
             "軍機特種任務"
         ],
@@ -2206,7 +2206,7 @@ const questionBank = [
         "options": [
             "一般緊急狀態",
             "無線電通信失效",
-            "航空器遭劫持 / 非法干擾 (Hijack / Unlawful Interference)",
+            "航空器遭劫持 / 非法干擾",
             "儀器飛航規則標準電碼"
         ],
         "answer": 2,
@@ -2220,7 +2220,7 @@ const questionBank = [
             "許可起飛",
             "許可降落",
             "回航降落",
-            "機場不安全，勿降落 (Aerodrome unsafe, do not land)"
+            "機場不安全，勿降落"
         ],
         "answer": 3,
         "explanation": "依 ATMP 表 3-2-1「飛航管制燈光信號」，對飛航中之航空器發出「連續紅色閃光」代表「機場不安全，勿降落」。"
@@ -2231,7 +2231,7 @@ const questionBank = [
         "question": "依 ATMP 第 3-2-1 節表 3-2-1，機場管制塔臺對「飛航中之航空器」發出「固定紅光 (Steady Red)」燈光信號代表什麼？",
         "options": [
             "立即緊急迫降",
-            "避讓其他航空器並繼續盤旋 (Give way to other aircraft and continue circling)",
+            "避讓其他航空器並繼續盤旋",
             "許可滑行",
             "許可降落"
         ],
@@ -2244,7 +2244,7 @@ const questionBank = [
         "question": "依 ATMP 第 3-2-1 節表 3-2-1，機場管制塔臺對「地面上之航空器」發出「固定綠燈 (Steady Green)」燈光信號代表什麼？",
         "options": [
             "停止滑行",
-            "許可起飛 (Cleared for take-off)",
+            "許可起飛",
             "返回原起始點",
             "滑離使用中之降落區"
         ],
@@ -2257,7 +2257,7 @@ const questionBank = [
         "question": "若不慎進入強烈亂流區 (Severe Turbulence) 時，駕駛員應採取何種正確飛行控制策略？",
         "options": [
             "全推油門加速衝出亂流區",
-            "設定亂流穿透空速 (Va / Vb)，保持平穩機翼與俯仰姿態，接受高度與空速適度波動",
+            "設定亂流穿透空速，保持平穩機翼與俯仰姿態，接受高度與空速適度波動",
             "進行大坡度急轉彎折返",
             "立即放出全襟翼減速"
         ],
@@ -2270,7 +2270,7 @@ const questionBank = [
         "question": "多發動機航空器的性能速度「Vmcg」代表什麼定義？",
         "options": [
             "乾淨構型失速速度",
-            "地面最小控制速度 (Minimum Control Speed on the Ground)",
+            "地面最小控制速度",
             "最大起飛重量速度",
             "最大巡航馬赫數"
         ],
@@ -2282,9 +2282,9 @@ const questionBank = [
         "type": "choice",
         "question": "多發動機航空器起飛性能中的「V1」速度定義為何？",
         "options": [
-            "起飛決斷速度 (Takeoff Decision Speed)",
-            "主輪離地速度 (Vlof)",
-            "最佳爬升率速度 (Vy)",
+            "起飛決斷速度",
+            "主輪離地速度",
+            "最佳爬升率速度",
             "襟翼全收速度"
         ],
         "answer": 0,
@@ -2296,7 +2296,7 @@ const questionBank = [
         "question": "起飛性能速度中的「Vr」代表什麼？",
         "options": [
             "起飛決斷速度",
-            "機頭仰起速度 (Rotation Speed)",
+            "機頭仰起速度",
             "著陸觸地速度",
             "最大航程巡航速度"
         ],
@@ -2309,7 +2309,7 @@ const questionBank = [
         "question": "多發動機航空器起飛性能中的「V2」速度定義為何？",
         "options": [
             "最大結構操作速度",
-            "起飛安全速度 (Takeoff Safety Speed)",
+            "起飛安全速度",
             "全襟翼失速速度",
             "最後進場參考速度"
         ],
@@ -2348,7 +2348,7 @@ const questionBank = [
         "question": "現代噴射客機客艙加壓系統 (Cabin Pressurization System) 的高壓空氣主要來自何處？",
         "options": [
             "隨身攜帶的高壓氧氣鋼瓶",
-            "發動機壓縮機引氣 (Engine Compressor Bleed Air) 或電動壓縮機（如 B787）",
+            "發動機壓縮機引氣或電動壓縮機（如 B787）",
             "直接將機外冷空氣灌入",
             "客艙空調循環扇"
         ],
@@ -2466,7 +2466,7 @@ const questionBank = [
         "image": "assets/FDR、CVR.jpg",
         "options": [
             "純黑色",
-            "高辨識度之亮橘色 (International Orange) 並貼有反光條",
+            "高辨識度之亮橘色並貼有反光條",
             "深藍色",
             "純白色"
         ],
@@ -2479,7 +2479,7 @@ const questionBank = [
         "question": "雙發動機航空器若在空中不幸遭遇雙發動機同時失效，駕駛員首要建立並維持何種空速？",
         "options": [
             "立即跳傘棄機",
-            "建立並保持最佳滑翔速度 (Best Glide Speed / Vbg)",
+            "建立並保持最佳滑翔速度",
             "急劇拉高機頭爬升",
             "立即放下起落架與全襟翼"
         ],
@@ -2492,7 +2492,7 @@ const questionBank = [
         "question": "飛航中若航空器觸發失速警告 (Stall Warning / Stick Shaker)，駕駛員的首要改出動作為何？",
         "options": [
             "立即猛拉駕駛桿抬高機頭",
-            "立即推桿降低機頭俯仰角以減小攻角 (Angle of Attack)，並視情況增加推力",
+            "立即推桿降低機頭俯仰角以減小攻角，並視情況增加推力",
             "立即放下起落架",
             "立即關閉發動機"
         ],
@@ -2505,7 +2505,7 @@ const questionBank = [
         "question": "單發動機螺旋槳飛機（順時針旋轉）在高攻角低空速爬升時產生的「P-Factor（不對稱槳葉推力效應）」會使飛機向哪側偏航？",
         "options": [
             "完全不產生偏航",
-            "右側下行槳葉攻角較大產生較大推力，導致機頭向左偏航 (Left Yaw)",
+            "右側下行槳葉攻角較大產生較大推力，導致機頭向左偏航",
             "進入倒飛姿態",
             "機頭劇烈向下俯衝"
         ],
@@ -2531,7 +2531,7 @@ const questionBank = [
         "question": "依 ATMP 第 1-2-7 節與第 1-3-1 節，縮語「VFR」與「IFR」分別代表什麼？",
         "options": [
             "民用規則與軍用規則",
-            "目視飛航規則 (Visual Flight Rules) 與儀器飛航規則 (Instrument Flight Rules)",
+            "目視飛航規則與儀器飛航規則",
             "貨運飛航與客運飛航",
             "短程航線與長程航線"
         ],
@@ -2544,7 +2544,7 @@ const questionBank = [
         "question": "依 ATMP 第 1-2-7 節與第 2-5-1 節，機場儀器降落系統 (ILS) 提供精確水平與垂直導引的兩大地面發射天線設施為何？",
         "options": [
             "初級雷達與次級雷達",
-            "左右定位臺 (Localizer, LLZ) 與滑降臺 (Glide Path, GP)",
+            "左右定位臺與滑降臺",
             "歸航臺與測距儀",
             "廣域多點定位系統"
         ],
@@ -2583,7 +2583,7 @@ const questionBank = [
         "question": "民航客機在極端緊急情況下必須執行「水上迫降 (Ditching)」時，標準起落架構型應為何？",
         "options": [
             "必須放下全部起落架",
-            "保持起落架完全收起 (Gear Up)，以免觸水瞬間產生巨大阻力導致機體翻覆解體",
+            "保持起落架完全收起，以免觸水瞬間產生巨大阻力導致機體翻覆解體",
             "僅放下前鼻輪",
             "無任何標準程序規定"
         ],
