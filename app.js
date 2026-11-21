@@ -2604,7 +2604,7 @@ const questionBank = [
     }
 ];
 
-const EXAM_TIME_SECONDS = 1800; // 30分鐘
+const EXAM_TIME_SECONDS = 18000; // 30分鐘
 const QUESTIONS_COUNT = Math.min(200, questionBank.length); // 每次隨機抽測 30 題
 
 let timerInterval;
