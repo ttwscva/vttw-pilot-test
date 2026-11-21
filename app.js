@@ -1970,6 +1970,7 @@ const questionBank = [
         "id": 152,
         "type": "choice",
         "question": "機場設置進場燈光系統 (Approach Light System, ALS) 的主要功能為何？",
+        "image": "assets/ALS.jpg",
         "options": [
             "照明高空雲層",
             "在夜間或低能見度儀器進場末段，提供目視參考引導駕駛員平順過渡至目視跑道環境",
