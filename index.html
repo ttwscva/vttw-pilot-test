@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 背景浮水印 (維持您原本的背景 LOGO) -->
+    <!-- 背景浮水印 -->
     <div class="watermark"></div>
 
     <div class="container">
         <header>
             <h1>
-                <!-- 這裡改回使用小老虎頭 favicon.1.png -->
                 <img src="assets/favicon.1.png" alt="vTTW Logo" class="header-logo">
                 <div class="header-text">
                     <span>虛擬台灣虎航 (vTTW)</span>
@@ -22,7 +21,7 @@
                 </div>
             </h1>
             <div id="timer" class="hidden">✈️ 剩餘時間：<span id="time-display">30:00</span></div>
-            <!-- 新增：標題右側比讚人物圖 -->
+            <!-- 標題右側比讚人物圖 -->
             <img src="assets/浩二.png" alt="加油" class="header-mascot">
         </header>
 
@@ -52,7 +51,7 @@
                     <p><strong>考試規則與說明：</strong></p>
                     <p>本測驗為 vTTW 飛行員新進人員筆試，每次隨機抽測 30 題，請於 30 分鐘內完成（及格標準為 85 分）。交卷後將即時顯示成績與詳細解析。</p>
                     
-                    <!-- 考題出處與參考依據 (含官方連結) -->
+                    <!-- 考題出處與參考依據 -->
                     <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 15px 0;">
                     <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 0;">
                         <strong>📚 考題出處與參考依據：</strong><br>
@@ -78,7 +77,6 @@
             <section id="result-screen" class="hidden">
                 <div class="result-box">
                     <h2>測驗結果</h2>
-                    <!-- 顯示考生姓名與分數 -->
                     <div id="result-candidate-info" style="font-size: 1.2rem; margin-bottom: 10px; color: #666;"></div>
                     <div id="score-display" class="score"></div>
                     <button id="retry-btn" class="tiger-btn">重新挑戰</button>
