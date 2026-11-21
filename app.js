@@ -2211,6 +2211,7 @@ const questionBank = [
         "id": 170,
         "type": "choice",
         "question": "依 ATMP 第 5-2-5 節，次級雷達詢答機設定電碼「Squawk 7500」代表什麼？",
+        "image": "assets/7500.png",
         "options": [
             "一般緊急狀態",
             "無線電通信失效",
