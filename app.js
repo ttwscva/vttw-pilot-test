@@ -1072,6 +1072,7 @@ const questionBank = [
         "id": 83,
         "type": "choice",
         "question": "跑道頭或跑道末端外側繪有黃色「V 字型（人字紋 Chevron）」標線之區域稱為？",
+        "image": "assets/Chevron.png",
         "options": [
             "直昇機起降區",
             "緩衝區 / 防吹坪，禁止正常滑行起降",
