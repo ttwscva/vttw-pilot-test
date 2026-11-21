@@ -2463,7 +2463,7 @@ const questionBank = [
         "id": 190,
         "type": "choice",
         "question": "俗稱「黑盒子」的飛航資料紀錄器 (FDR) 與座艙語音紀錄器 (CVR)，實際外觀顏色為何？",
-        "image: "assets/FDR、CVR.jpg"
+        "image": "assets/FDR、CVR.jpg",
         "options": [
             "純黑色",
             "高辨識度之亮橘色 (International Orange) 並貼有反光條",
@@ -2605,8 +2605,8 @@ const questionBank = [
     }
 ];
 
-const EXAM_TIME_SECONDS = 18000; // 30分鐘
-const QUESTIONS_COUNT = Math.min(200, questionBank.length); // 每次隨機抽測 30 題
+const EXAM_TIME_SECONDS = 1800; // 30分鐘
+const QUESTIONS_COUNT = Math.min(30, questionBank.length); // 每次隨機抽測 30 題
 
 let timerInterval;
 let timeRemaining = EXAM_TIME_SECONDS;
@@ -2804,6 +2804,10 @@ function submitExam() {
     
     resultScreen.scrollIntoView({ behavior: 'smooth' });
 
+    // ==========================================
+    // [AI GUARDRAIL - DO NOT MODIFY START]
+    // Google Sheets 成績上傳邏輯
+    // ==========================================
     const scriptUrl = "https://script.google.com/macros/s/AKfycbzxANs5UGKfIle14PWndxsSnBU1h-Lghuj66cgOjRCjCsJk2AzSmB7l4XDjUsyZRv6V/exec"; 
     
     const payload = {
@@ -2821,6 +2825,9 @@ function submitExam() {
     .then(response => response.json())
     .then(data => console.log("成績已成功上傳", data))
     .catch(error => console.error("成績上傳失敗:", error));
+    // ==========================================
+    // [AI GUARDRAIL - DO NOT MODIFY END]
+    // ==========================================
 }
 
 function resetExam() {
