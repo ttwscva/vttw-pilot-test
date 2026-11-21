@@ -127,15 +127,26 @@ main {
 
 .info-box {
     background: #ffffff;
-    padding: 20px 16px;
+    padding: 24px 22px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 600px;
+    max-width: 680px; /* 稍微加寬，讓純文字說明更舒適 */
     margin-bottom: 15px;
-    line-height: 1.6;
+    line-height: 1.75; /* 增加行高，提升易讀性 */
     font-size: 0.95rem;
     border-top: 4px solid #f59e0b;
+}
+
+/* 針對開始畫面資訊框進一步調寬與內距優化 */
+#start-screen .info-box {
+    max-width: 680px;
+    padding: 28px 30px;
+}
+
+#start-screen .info-box p, 
+#start-screen .info-box ul {
+    margin-bottom: 10px;
 }
 
 /* 考生姓名與電子郵件欄位：維持在同一行 */
@@ -182,7 +193,7 @@ main {
 .tiger-btn {
     display: block;
     width: 100%;
-    max-width: 600px;
+    max-width: 680px; /* 與資訊框寬度對齊 */
     margin: 0 auto 15px auto;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: white;
