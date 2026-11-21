@@ -995,6 +995,7 @@ const questionBank = [
         "id": 77,
         "type": "choice",
         "question": "觀察到機場風向袋 (Windsock) 完全垂直朝下垂落，代表什麼狀況？",
+        "image": "assets/calm wind.jpg",
         "options": [
             "強烈陣風",
             "靜風或風速極低",
@@ -2248,6 +2249,7 @@ const questionBank = [
         "id": 173,
         "type": "choice",
         "question": "依 ATMP 第 3-2-1 節表 3-2-1，機場管制塔臺對「地面上之航空器」發出「固定綠燈 (Steady Green)」燈光信號代表什麼？",
+        "image": "assets/Steady Green.png",
         "options": [
             "停止滑行",
             "許可起飛",
