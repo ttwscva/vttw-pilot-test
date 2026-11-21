@@ -2453,6 +2453,7 @@ const questionBank = [
         "id": 189,
         "type": "choice",
         "question": "大型客機機翼下方常見的流線型獨木舟狀突出整流罩（Flap Track Fairings）主要作用為何？",
+        "image": "assets/襟翼整流罩.jpg",
         "options": [
             "外掛副油箱",
             "包覆襟翼伸展與收起之機械滑軌機構，以減少氣動阻力",
