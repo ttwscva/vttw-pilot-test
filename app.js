@@ -343,7 +343,7 @@ const questionBank = [
         "id": 27,
         "type": "choice",
         "question": "跑道頭 (Threshold) 的「鋼琴鍵」條紋標線數量代表什麼含義？",
-        "image: "assets/鋼琴線.PNG",
+        "image": "assets/鋼琴線.PNG",
         "options": [
             "跑道長度",
             "跑道寬度",
@@ -1548,7 +1548,7 @@ const questionBank = [
             "立即放出全襟翼"
         ],
         "answer": 2,
-        "explanation": "重飛首要原則為「Aviate（先飛好飛機）」，當機立斷時應優先穩定俯仰姿態、建立正爬升率並伴隨重飛推力，確認安全後再依序收起起落架與通訊。"
+        "explanation": "重飛首要原則為「Aviate（先飛好飛機）」，當機立斷時應優先穩定俯仰姿態、建立正爬升率並伴隨重飛推力，確認安全後再依序收起落架與通訊。"
     },
     {
         "id": 120,
@@ -1847,7 +1847,7 @@ const questionBank = [
             "正加入三邊"
         ],
         "answer": 1,
-        "explanation": "Turning Final 代表航空器正由四邊 (Base) 轉向五邊最後進場 (Final Approach)，即將對準跑道落地。"
+        "explanation": "Turning Final 代表航空器正由四邊 (Base) 轉向五邊最後進場 (Final Approach), 即將對準跑道落地。"
     },
     {
         "id": 143,
