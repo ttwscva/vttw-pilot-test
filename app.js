@@ -1649,6 +1649,7 @@ const questionBank = [
         "id": 127,
         "type": "choice",
         "question": "跑道兩端道面上繪有巨大白色或黃色「X」標線，依《民用機場設計暨運作規範》代表什麼？",
+        "image": "assets/Runway X.png",
         "options": [
             "緊急迫降指定區",
             "跑道關閉標線，嚴禁起飛與降落",
