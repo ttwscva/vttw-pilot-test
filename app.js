@@ -46,6 +46,7 @@ const questionBank = [
         "id": 4,
         "type": "choice",
         "question": "若皮托管 (Pitot Tube) 完全積冰堵塞，但靜壓孔 (Static Port) 正常，哪一個儀表會顯示異常？",
+        "image": "assets/Pitot Tube.jpg",
         "options": [
             "高度表 (Altimeter)",
             "升降速率表 (VSI)",
@@ -161,6 +162,7 @@ const questionBank = [
         "id": 13,
         "type": "choice",
         "question": "05 號跑道 (RWY 05) 的相反方向跑道號碼是多少？",
+        "image": "assets/rwy05反向.png",
         "options": [
             "15",
             "23",
@@ -461,6 +463,7 @@ const questionBank = [
         "id": 36,
         "type": "choice",
         "question": "具備機首前半段雙層客艙「駝峰」外觀設計的經典客機是？",
+        "image": "assets/駝峰.png",
         "options": [
             "A380",
             "B777",
@@ -760,6 +763,7 @@ const questionBank = [
         "id": 59,
         "type": "choice",
         "question": "轉彎協調表 (Turn Coordinator) 下方的黑球（側滑儀 Inclinometer）主要作用為何？",
+        "image": "assets/Turn Coordinator.jpg",
         "options": [
             "指示俯仰角",
             "顯示轉彎時之側滑或外滑協調狀態",
@@ -786,6 +790,7 @@ const questionBank = [
         "id": 61,
         "type": "choice",
         "question": "側風進場時使用「蟹行法 (Crab Method)」的主要目的為何？",
+        "image": "assets/crab method.png",
         "options": [
             "加快減速",
             "讓機首始終與跑道平行",
@@ -955,6 +960,7 @@ const questionBank = [
         "id": 74,
         "type": "choice",
         "question": "ATMP 中所稱之「連續起降 (Touch-and-Go)」是指何種操作？",
+        "image": "assets/Touch-and-Go.jpg",
         "options": [
             "全停煞停後再滑行起飛",
             "落地觸地滾行後不完全停止，隨即加速再次起飛",
@@ -1364,6 +1370,7 @@ const questionBank = [
         "id": 105,
         "type": "choice",
         "question": "氣象雲族分類中，字首帶有「Alto-」代表哪一類雲族？",
+        "image": "assets/Alto-.jpg",
         "options": [
             "高雲族 (High Clouds)",
             "中雲族 (Middle Clouds)",
@@ -1939,6 +1946,7 @@ const questionBank = [
         "id": 149,
         "type": "choice",
         "question": "現代客機採用的「線傳飛控系統 (Fly-By-Wire, FBW)」核心設計理念為何？",
+        "image": "assets/FBW.jpg",
         "options": [
             "以鋼纜直接拉動舵面",
             "駕駛員操作輸入先轉換為電子訊號送交飛控電腦運算，並提供飛航包絡線保護",
@@ -2005,6 +2013,7 @@ const questionBank = [
         "id": 154,
         "type": "choice",
         "question": "夜間進場降落於周邊缺乏地面燈光參考（如海邊或荒野）的跑道時，容易產生「黑洞進場錯覺 (Black Hole Approach Illusion)」，此錯覺會使駕駛員產生何種誤判？",
+        "image": "assets/Black Hole Approach Illusion.png",
         "options": [
             "誤以為正在倒飛",
             "誤以為航空器飛得太高，進而本能壓低機頭導致低於下滑道而過早觸地",
@@ -2560,6 +2569,7 @@ const questionBank = [
         "id": 196,
         "type": "choice",
         "question": "依 ATMP 第 1-2-7 節與第 2-5-1 節，機場儀器降落系統 (ILS) 提供精確水平與垂直導引的兩大地面發射天線設施為何？",
+        "image": "assets/ils.png",
         "options": [
             "初級雷達與次級雷達",
             "左右定位臺與滑降臺",
