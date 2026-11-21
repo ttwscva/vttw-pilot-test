@@ -1,9 +1,9 @@
 # Virtual Tigerair Taiwan (vTTW) - Pilot Written Exam System
 
-> 🤖 **Collaboration & Code Protection Rules (Instructions for Gemini)**
+> **Collaboration & Code Protection Rules (Instructions for Gemini)**
 > Whenever the user asks to modify, refactor, debug, or expand this repository, Gemini **MUST strictly adhere** to the following "DO NOT MODIFY" and formatting rules:
 
-## 🚫 Strictly Prohibited Modifications (DO NOT MODIFY)
+## Strictly Prohibited Modifications (DO NOT MODIFY)
 
 1. **Google Sheets Score Submission & Webhook URL (`app.js`)**:
    - **DO NOT** alter, delete, or obfuscate the `scriptUrl` (`https://script.google.com/macros/s/AKfycbzxANs5UGKfIle14PWndxsSnBU1h-Lghuj66cgOjRCjCsJk2AzSmB7l4XDjUsyZRv6V/exec`), the `payload` keys (`name`, `id`, `score`, `status`), or the `fetch()` POST logic inside `submitExam()`.
