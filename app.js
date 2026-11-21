@@ -343,7 +343,7 @@ const questionBank = [
         "id": 27,
         "type": "choice",
         "question": "跑道頭 (Threshold) 的「鋼琴鍵」條紋標線數量代表什麼含義？",
-        "image: "assets/鋼琴線.PNG"
+        "image: "assets/鋼琴線.PNG",
         "options": [
             "跑道長度",
             "跑道寬度",
