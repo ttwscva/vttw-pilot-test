@@ -1506,6 +1506,7 @@ const questionBank = [
         "id": 116,
         "type": "choice",
         "question": "跑道端安全區 (Runway End Safety Area, RESA) 設置的主要目的為何？",
+        "image": "assets/RESA.jpg",
         "options": [
             "供航空器長期停放",
             "作為正常起飛滾行長度",
