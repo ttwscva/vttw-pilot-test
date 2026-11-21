@@ -1740,7 +1740,8 @@ const questionBank = [
     {
         "id": 134,
         "type": "choice",
-        "question": "大型客機機翼前緣配備的「前緣縫翼 (Slats)」主要氣動作用為何？",
+        "question": "機翼前緣配備的「前緣縫翼 (Slats)」主要氣動作用為何？",
+        "image": "assets/Slats.jpg",
         "options": [
             "作為空中減速煞車",
             "引導高壓氣流流經上翼面，延緩邊界層氣流分離以允許更高攻角飛航",
